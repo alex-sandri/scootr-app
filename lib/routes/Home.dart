@@ -11,37 +11,76 @@ class HomeRoute extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            TextButton.icon(
-              icon: SvgPicture.asset(
-                "assets/images/spid-icon.svg",
-                height: 25,
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Evita l'auto.",
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  Text(
+                    "Evita il traffico.",
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  Text(
+                    "Aiuta il Paese.",
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  Text(
+                    "Diventa parte della rivoluzione della micro-mobilità sostenibile.",
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
               ),
-              label: Text("Entra con SPID"),
-              style: Theme.of(context).textButtonTheme.style.copyWith(
-                foregroundColor: MaterialStateProperty.all(Colors.white),
-                backgroundColor: MaterialStateProperty.all(Config.SPID_COLOR),
-              ),
-              onPressed: () {
-
-              },
             ),
-            SizedBox(height: 10),
-            TextButton.icon(
-              icon: SvgPicture.asset(
-                "assets/images/cie-icon.svg",
-                height: 25,
-              ),
-              label: Text("Entra con CIE"),
-              style: Theme.of(context).textButtonTheme.style.copyWith(
-                foregroundColor: MaterialStateProperty.all(Colors.white),
-                backgroundColor: MaterialStateProperty.all(Config.SPID_COLOR),
-              ),
-              onPressed: () {
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                TextButton.icon(
+                  icon: SvgPicture.asset(
+                    "assets/images/spid-icon.svg",
+                    height: 25,
+                  ),
+                  label: Text("Entra con SPID"),
+                  style: Theme.of(context).textButtonTheme.style.copyWith(
+                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                    backgroundColor: MaterialStateProperty.all(Config.SPID_COLOR),
+                  ),
+                  onPressed: () {
 
-              },
+                  },
+                ),
+                SizedBox(height: 10),
+                TextButton.icon(
+                  icon: SvgPicture.asset(
+                    "assets/images/cie-icon.svg",
+                    height: 25,
+                  ),
+                  label: Text("Entra con CIE"),
+                  style: Theme.of(context).textButtonTheme.style.copyWith(
+                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                    backgroundColor: MaterialStateProperty.all(Config.SPID_COLOR),
+                  ),
+                  onPressed: () {
+
+                  },
+                ),
+              ],
             ),
           ],
         ),

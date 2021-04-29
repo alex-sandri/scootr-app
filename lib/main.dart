@@ -21,10 +21,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: "WorkSans",
         scaffoldBackgroundColor: Config.PRIMARY_COLOR,
+        accentColor: Config.SECONDARY_COLOR,
         appBarTheme: AppBarTheme(
           brightness: Brightness.dark,
           color: Config.PRIMARY_COLOR,
           elevation: 0,
+        ),
+        textTheme: Theme.of(context).textTheme.apply(
+          fontFamily: "WorkSans",
+          bodyColor: Config.SECONDARY_COLOR,
         ),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
