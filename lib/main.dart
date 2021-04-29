@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "scootr",
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        fontFamily: "WorkSans",
       ),
       home: HomeRoute(),
     );
