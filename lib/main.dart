@@ -27,10 +27,17 @@ class MyApp extends StatelessWidget {
           color: Config.PRIMARY_COLOR,
           elevation: 0,
         ),
-        textTheme: Theme.of(context).textTheme.apply(
-          fontFamily: "WorkSans",
-          bodyColor: Config.SECONDARY_COLOR,
-        ),
+        textTheme: Theme.of(context).textTheme
+          .copyWith(
+            headline6: Theme.of(context).textTheme.headline6.copyWith(
+              fontSize: 30,
+              fontWeight: FontWeight.w700,
+            ),
+          )
+          .apply(
+            fontFamily: "WorkSans",
+            bodyColor: Config.SECONDARY_COLOR,
+          ),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
             foregroundColor: MaterialStateProperty.all(Config.PRIMARY_COLOR),
