@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
             backgroundColor: MaterialStateProperty.all(Config.SECONDARY_COLOR),
             padding: MaterialStateProperty.all(EdgeInsets.all(10)),
             textStyle: MaterialStateProperty.all(TextStyle(
+              fontFamily: "WorkSans",
               fontSize: 18,
             )),
             shape: MaterialStateProperty.all(RoundedRectangleBorder(
