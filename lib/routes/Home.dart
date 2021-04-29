@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scootr/config/Config.dart';
+import 'package:scootr/routes/SpidIdpList.dart';
 import 'package:scootr/widgets/AppBar.dart';
 
 class HomeRoute extends StatelessWidget {
@@ -62,7 +63,11 @@ class HomeRoute extends StatelessWidget {
                     backgroundColor: MaterialStateProperty.all(Config.SPID_COLOR),
                   ),
                   onPressed: () {
-
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => SpidIdpListRoute(),
+                      ),
+                    );
                   },
                 ),
                 SizedBox(height: 10),
