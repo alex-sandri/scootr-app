@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/widgets/AppBar.dart';
@@ -30,7 +31,15 @@ class SpidIdpListRoute extends StatelessWidget {
                       placeholderBuilder: (_) => Text(identityProvider.name),
                     ),
                     onPressed: () {
-
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => InAppWebView(
+                            initialUrlRequest: URLRequest(
+                              url: Uri.parse("TODO"),
+                            ),
+                          ),
+                        ),
+                      );
                     },
                   ),
                 ),
