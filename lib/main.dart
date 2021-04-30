@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/routes/Home.dart';
+import 'package:scootr/services/Auth.dart';
 
 void main() {
   runApp(MyApp());
@@ -56,7 +57,19 @@ class MyApp extends StatelessWidget {
           backgroundColor: Config.SECONDARY_COLOR,
         ),
       ),
-      home: HomeRoute(),
+      home: FutureBuilder<bool>(
+        future: AuthService.init(),
+        builder: (context, isSignedIn) {
+          if (!isSignedIn.hasData)
+          {
+            return CircularProgressIndicator();
+          }
+
+          return isSignedIn.data
+            ? HomeRoute()
+            : HomeRoute();
+        },
+      ),
     );
   }
 }
