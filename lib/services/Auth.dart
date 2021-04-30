@@ -4,6 +4,6 @@ class AuthService {
   User user;
 
   static Future<bool> init() async {
-    return false;
+    return true;
   }
 }
