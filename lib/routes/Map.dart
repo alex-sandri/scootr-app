@@ -11,6 +11,7 @@ class MapRoute extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.qr_code_scanner),
+            tooltip: "Scansiona Codice QR",
             onPressed: () {
               // TODO
             },
@@ -34,6 +35,7 @@ class MapRoute extends StatelessWidget {
         children: [
           FloatingActionButton(
             child: Icon(Icons.stop),
+            tooltip: "Termina corsa",
             onPressed: () {
               // TODO
             },
@@ -41,6 +43,7 @@ class MapRoute extends StatelessWidget {
           SizedBox(height: 15),
           FloatingActionButton(
             child: Icon(Icons.place),
+            tooltip: "Vai alla posizione attuale",
             onPressed: () {
               // TODO
             },
