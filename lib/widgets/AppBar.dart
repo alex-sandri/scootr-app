@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scootr/services/Auth.dart';
 
 class ScootrAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget> actions;
@@ -14,7 +15,17 @@ class ScootrAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text("scootr"),
-      actions: this.actions,
+      actions: [
+        ...this.actions,
+        if (AuthService.user != null)
+          IconButton(
+            icon: Icon(Icons.account_circle),
+            tooltip: AuthService.user.email,
+            onPressed: () {
+              // TODO
+            }
+          ),
+      ],
     );
   }
 }
