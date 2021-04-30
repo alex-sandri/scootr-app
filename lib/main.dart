@@ -55,7 +55,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: Config.SECONDARY_COLOR,
+          foregroundColor: Config.SECONDARY_COLOR,
+          backgroundColor: Config.PRIMARY_COLOR,
         ),
       ),
       home: FutureBuilder<bool>(

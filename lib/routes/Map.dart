@@ -20,6 +20,31 @@ class MapRoute extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            child: Icon(Icons.stop),
+            onPressed: () {
+              // TODO
+            },
+          ),
+          SizedBox(height: 15),
+          FloatingActionButton(
+            child: Icon(Icons.qr_code_scanner),
+            onPressed: () {
+              // TODO
+            },
+          ),
+          SizedBox(height: 15),
+          FloatingActionButton(
+            child: Icon(Icons.place),
+            onPressed: () {
+              // TODO
+            },
+          ),
+        ],
+      ),
     );
   }
 }
