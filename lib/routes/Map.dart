@@ -7,7 +7,16 @@ class MapRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ScootrAppBar(),
+      appBar: ScootrAppBar(
+        actions: [
+          IconButton(
+            icon: Icon(Icons.qr_code_scanner),
+            onPressed: () {
+              // TODO
+            },
+          ),
+        ],
+      ),
       body: FlutterMap(
         options: MapOptions(
           center: LatLng(41.9027835, 12.4963655),
@@ -25,13 +34,6 @@ class MapRoute extends StatelessWidget {
         children: [
           FloatingActionButton(
             child: Icon(Icons.stop),
-            onPressed: () {
-              // TODO
-            },
-          ),
-          SizedBox(height: 15),
-          FloatingActionButton(
-            child: Icon(Icons.qr_code_scanner),
             onPressed: () {
               // TODO
             },
