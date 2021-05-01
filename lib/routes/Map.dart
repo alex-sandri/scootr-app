@@ -23,11 +23,15 @@ class MapRoute extends StatelessWidget {
         options: MapOptions(
           center: LatLng(41.9027835, 12.4963655),
           zoom: 18,
+          maxZoom: 19,
+          minZoom: 15,
         ),
         layers: [
           TileLayerOptions(
             urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
             subdomains: [ "a", "b", "c" ],
+            maxZoom: 19,
+            minZoom: 15,
           ),
         ],
       ),
