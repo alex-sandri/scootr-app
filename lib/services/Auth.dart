@@ -2,7 +2,7 @@ import 'package:scootr/models/Session.dart';
 import 'package:scootr/services/Api.dart';
 
 class AuthService {
-  static Session session;
+  static Session? session;
 
   static Future<bool> init() async {
     final String sessionId = "";

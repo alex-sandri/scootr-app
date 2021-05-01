@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:scootr/models/User.dart';
 
 class Session {
@@ -7,8 +6,8 @@ class Session {
   final DateTime expiresAt;
 
   const Session({
-    @required this.id,
-    @required this.user,
-    @required this.expiresAt,
+    required this.id,
+    required this.user,
+    required this.expiresAt,
   });
 }

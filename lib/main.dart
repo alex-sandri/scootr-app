@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: Theme.of(context).textTheme
           .copyWith(
-            headline6: Theme.of(context).textTheme.headline6.copyWith(
+            headline6: Theme.of(context).textTheme.headline6!.copyWith(
               fontSize: 30,
               fontWeight: FontWeight.w700,
             ),
@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
             return CircularProgressIndicator();
           }
 
-          return isSignedIn.data
+          return isSignedIn.data!
             ? MapRoute()
             : HomeRoute();
         },
