@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 class User {
   final String id;
   final String firstName;
@@ -9,11 +7,11 @@ class User {
   final String fiscalNumber;
 
   const User({
-    @required this.id,
-    @required this.firstName,
-    @required this.lastName,
-    @required this.email,
-    @required this.birthDate,
-    @required this.fiscalNumber,
+    required this.id,
+    required this.firstName,
+    required this.lastName,
+    required this.email,
+    required this.birthDate,
+    required this.fiscalNumber,
   });
 }

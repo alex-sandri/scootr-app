@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/models/Session.dart';
@@ -16,16 +15,16 @@ enum ApiMethod {
 
 class ApiService {
   static Future<ApiResponse<T>> send<T>({
-    @required ApiMethod method,
-    @required String path,
-    Object body,
+    required ApiMethod method,
+    required String path,
+    Object? body,
   }) async {
     final Map<String, String> headers = {
       "Authorization": "Bearer ${AuthService.session?.id}",
       "Content-Type": "application/json",
     };
 
-    http.Response response;
+    late http.Response response;
 
     if (method == ApiMethod.GET)
     {
@@ -71,12 +70,12 @@ class ApiService {
 class ApiResponse<T> {
   final int status;
   final bool success;
-  T data;
-  List<ApiResponseError> errors;
+  T? data;
+  List<ApiResponseError>? errors;
 
   ApiResponse({
-    @required this.status,
-    @required this.success,
+    required this.status,
+    required this.success,
     this.data,
     this.errors,
   });
@@ -87,7 +86,7 @@ class ApiResponseError {
   final String message;
 
   const ApiResponseError({
-    @required this.field,
-    @required this.message,
+    required this.field,
+    required this.message,
   });
 }

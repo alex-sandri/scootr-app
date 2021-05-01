@@ -58,7 +58,7 @@ class HomeRoute extends StatelessWidget {
                     height: 25,
                   ),
                   label: Text("Entra con SPID"),
-                  style: Theme.of(context).textButtonTheme.style.copyWith(
+                  style: Theme.of(context).textButtonTheme.style!.copyWith(
                     foregroundColor: MaterialStateProperty.all(Colors.white),
                     backgroundColor: MaterialStateProperty.all(Config.SPID_COLOR),
                   ),
@@ -77,7 +77,7 @@ class HomeRoute extends StatelessWidget {
                     height: 25,
                   ),
                   label: Text("Entra con CIE"),
-                  style: Theme.of(context).textButtonTheme.style.copyWith(
+                  style: Theme.of(context).textButtonTheme.style!.copyWith(
                     foregroundColor: MaterialStateProperty.all(Colors.white),
                     backgroundColor: MaterialStateProperty.all(Config.SPID_COLOR),
                   ),
