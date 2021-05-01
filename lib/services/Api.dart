@@ -24,15 +24,70 @@ class ApiService {
       "Content-Type": "application/json",
     };
 
+    print(headers);print(Uri.parse("${Config.API_ENDPOINT}$path"));
+
     late http.Response response;
 
-    if (method == ApiMethod.GET)
+    try
     {
-      response = await http.get(
-        Uri.parse("${Config.API_ENDPOINT}$path"),
-        headers: headers,
-      );
+      switch (method)
+      {
+        case ApiMethod.GET:
+        {
+          response = await http.get(
+            Uri.parse("${Config.API_ENDPOINT}$path"),
+            headers: headers,
+          );
+
+          break;
+        }
+        case ApiMethod.POST:
+        {
+          response = await http.post(
+            Uri.parse("${Config.API_ENDPOINT}$path"),
+            headers: headers,
+            body: body,
+          );
+
+          break;
+        }
+        case ApiMethod.PATCH:
+        {
+          response = await http.patch(
+            Uri.parse("${Config.API_ENDPOINT}$path"),
+            headers: headers,
+            body: body,
+          );
+
+          break;
+        }
+        case ApiMethod.PUT:
+        {
+          response = await http.put(
+            Uri.parse("${Config.API_ENDPOINT}$path"),
+            headers: headers,
+            body: body,
+          );
+
+          break;
+        }
+        case ApiMethod.DELETE:
+        {
+          response = await http.delete(
+            Uri.parse("${Config.API_ENDPOINT}$path"),
+            headers: headers,
+          );
+
+          break;
+        }
+      }
     }
+    catch (e)
+    {
+      print(e);
+    }
+
+    print(response.body);
 
     final ApiResponse<T> result = ApiResponse<T>(
       status: response.statusCode,

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:scootr/models/SpidIdentityProvider.dart';
@@ -9,8 +11,13 @@ class Config {
 
   static const Color SPID_COLOR = Color(0xff0066cc);
 
-  static const String API_ENDPOINT = kDebugMode
-    ? "http://localhost:4000"
+  // ignore: non_constant_identifier_names
+  static final String API_ENDPOINT = kDebugMode
+    ? (
+      Platform.isAndroid
+        ? "http://10.0.2.2:4000" // 10.0.2.2 is used by the Android emulator to point to the host's localhost
+        : "http://localhost:4000"
+    )
     : "https://api.scootr.it";
 
   static const List<SpidIdentityProvider> SPID_IDENTITY_PROVIDERS = [
