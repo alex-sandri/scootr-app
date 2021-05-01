@@ -104,7 +104,10 @@ class ApiService {
     }
     else
     {
-      result.data = json as T; // Add to T fromJson method
+      switch (T)
+      {
+        case Session: result.data = Session.deserialize(json) as T; break;
+      }
     }
 
     return result;

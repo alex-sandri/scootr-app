@@ -10,4 +10,12 @@ class Session {
     required this.user,
     required this.expiresAt,
   });
+
+  static Session deserialize(Map<String, dynamic> json) {
+    return Session(
+      id: json["id"],
+      user: User.deserialize(json["user"]),
+      expiresAt: DateTime.parse(json["expires_at"]),
+    );
+  }
 }
