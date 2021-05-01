@@ -20,7 +20,7 @@ class ApiService {
     Object? body,
   }) async {
     final Map<String, String> headers = {
-      "Authorization": "Bearer ${AuthService.session?.id}",
+      "Authorization": "Bearer ${AuthService.sessionId}",
       "Content-Type": "application/json",
     };
 
