@@ -68,7 +68,11 @@ class MyApp extends StatelessWidget {
         builder: (context, isSignedIn) {
           if (!isSignedIn.hasData)
           {
-            return CircularProgressIndicator();
+            return Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
           }
 
           return isSignedIn.data!
