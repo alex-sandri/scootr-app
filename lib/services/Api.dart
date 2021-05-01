@@ -24,8 +24,6 @@ class ApiService {
       "Content-Type": "application/json",
     };
 
-    print(headers);print(Uri.parse("${Config.API_ENDPOINT}$path"));
-
     late http.Response response;
 
     try
@@ -86,8 +84,6 @@ class ApiService {
     {
       print(e);
     }
-
-    print(response.body);
 
     final ApiResponse<T> result = ApiResponse<T>(
       status: response.statusCode,
