@@ -7,10 +7,11 @@ class AuthService {
   static Future<bool> init() async {
     final String sessionId = "";
 
+/*
     if (sessionId == null)
     {
       return false;
-    }
+    }*/
 
     final response = await ApiService.retrieveSession(sessionId);
 
