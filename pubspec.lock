@@ -131,12 +131,19 @@ packages:
     source: hosted
     version: "0.17.0"
   latlong:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: latlong
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.1"
+  latlong2:
+    dependency: "direct main"
+    description:
+      name: latlong2
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.0"
   lists:
     dependency: transitive
     description:
