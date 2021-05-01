@@ -16,7 +16,7 @@ class ScootrAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text("scootr"),
       actions: [
-        ...this.actions,
+        ...this.actions ?? [],
         if (AuthService.user != null)
           IconButton(
             icon: Icon(Icons.account_circle),
