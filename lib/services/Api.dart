@@ -100,11 +100,11 @@ class ApiService {
 
     if (!result.success)
     {
-      result.errors = json.details;
+      result.errors = json["details"] ?? [];
     }
     else
     {
-      result.data = json;
+      result.data = json as T; // Add to T fromJson method
     }
 
     return result;

@@ -15,6 +15,11 @@ class AuthService {
 
     final response = await ApiService.retrieveSession(sessionId);
 
+    if (!response.success)
+    {
+      return false;
+    }
+
     AuthService.session = response.data;
 
     return true;
