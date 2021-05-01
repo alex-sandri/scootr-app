@@ -11,8 +11,8 @@ class MapRoute extends StatelessWidget {
       appBar: ScootrAppBar(
         actions: [
           IconButton(
-            icon: Icon(Icons.qr_code_scanner),
-            tooltip: "Scansiona Codice QR",
+            icon: Icon(Icons.place),
+            tooltip: "Vai alla posizione attuale",
             onPressed: () {
               // TODO
             },
@@ -35,26 +35,12 @@ class MapRoute extends StatelessWidget {
           ),
         ],
       ),
-      floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          FloatingActionButton(
-            child: Icon(Icons.stop),
-            tooltip: "Termina corsa",
-            backgroundColor: Config.DANGER_COLOR,
-            onPressed: () {
-              // TODO
-            },
-          ),
-          SizedBox(height: 15),
-          FloatingActionButton(
-            child: Icon(Icons.place),
-            tooltip: "Vai alla posizione attuale",
-            onPressed: () {
-              // TODO
-            },
-          ),
-        ],
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.qr_code_scanner),
+        tooltip: "Scansiona Codice QR",
+        onPressed: () {
+          // TODO
+        },
       ),
     );
   }
