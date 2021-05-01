@@ -17,10 +17,10 @@ class ScootrAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Text("scootr"),
       actions: [
         ...this.actions ?? [],
-        if (AuthService.user != null)
+        if (AuthService.session != null)
           IconButton(
             icon: Icon(Icons.account_circle),
-            tooltip: AuthService.user.email,
+            tooltip: AuthService.session.user.email,
             onPressed: () {
               // TODO
             }

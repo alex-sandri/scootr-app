@@ -9,6 +9,10 @@ class Config {
 
   static const Color SPID_COLOR = Color(0xff0066cc);
 
+  static const String API_ENDPOINT = kDebugMode
+    ? "http://localhost:4000"
+    : "https://api.scootr.it";
+
   static const List<SpidIdentityProvider> SPID_IDENTITY_PROVIDERS = [
     const SpidIdentityProvider(id: "arubaid", name: "Aruba ID"),
     const SpidIdentityProvider(id: "infocertid", name: "Infocert ID"),
