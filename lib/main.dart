@@ -45,13 +45,17 @@ class MyApp extends StatelessWidget {
             foregroundColor: MaterialStateProperty.all(Config.PRIMARY_COLOR),
             backgroundColor: MaterialStateProperty.all(Config.SECONDARY_COLOR),
             padding: MaterialStateProperty.all(EdgeInsets.all(10)),
-            textStyle: MaterialStateProperty.all(TextStyle(
-              fontFamily: "WorkSans",
-              fontSize: 18,
-            )),
-            shape: MaterialStateProperty.all(RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5),
-            )),
+            textStyle: MaterialStateProperty.all(
+              TextStyle(
+                fontFamily: "WorkSans",
+                fontSize: 18,
+              ),
+            ),
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5),
+              ),
+            ),
           ),
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
