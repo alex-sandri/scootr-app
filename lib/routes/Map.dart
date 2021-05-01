@@ -5,26 +5,18 @@ import 'package:scootr/config/Config.dart';
 import 'package:scootr/widgets/AppBar.dart';
 
 class MapRoute extends StatelessWidget {
+  final LatLng _currentLocation = LatLng(41.9027835, 12.4963655);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ScootrAppBar(
-        actions: [
-          IconButton(
-            icon: Icon(Icons.place),
-            tooltip: "Vai alla posizione attuale",
-            onPressed: () {
-              // TODO
-            },
-          ),
-        ],
-      ),
+      appBar: ScootrAppBar(),
       body: Stack(
         alignment: Alignment.bottomCenter,
         children: [
           FlutterMap(
             options: MapOptions(
-              center: LatLng(41.9027835, 12.4963655),
+              center: _currentLocation,
               zoom: 18,
               maxZoom: 19,
               minZoom: 15,
