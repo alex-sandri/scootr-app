@@ -28,4 +28,16 @@ class AuthService {
 
     return true;
   }
+
+  static Future<void> signOut() async {
+    if (AuthService.sessionId != null)
+    {
+      await ApiService.deleteSession(AuthService.sessionId);
+
+      AuthService.session = null;
+      AuthService.sessionId = null;
+
+      await Hive.deleteBoxFromDisk("auth");
+    }
+  }
 }
