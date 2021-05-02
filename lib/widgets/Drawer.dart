@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:scootr/models/Session.dart';
 import 'package:scootr/routes/Account.dart';
 import 'package:scootr/routes/Map.dart';
+import 'package:scootr/routes/Settings.dart';
 import 'package:scootr/services/Auth.dart';
 
 class ScootrDrawer extends StatelessWidget {
@@ -48,6 +49,17 @@ class ScootrDrawer extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (_) => AccountRoute(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.settings),
+            title: Text("Impostazioni"),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => SettingsRoute(),
                 ),
               );
             },
