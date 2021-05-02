@@ -5,6 +5,7 @@ import 'package:latlong/latlong.dart';
 import 'package:provider/provider.dart';
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/models/Session.dart';
+import 'package:scootr/routes/Account.dart';
 import 'package:scootr/services/Auth.dart';
 import 'package:scootr/widgets/AppBar.dart';
 
@@ -80,7 +81,11 @@ class MapRoute extends StatelessWidget {
                   leading: Icon(Icons.account_circle),
                   title: Text("Account"),
                   onTap: () {
-                    // TODO
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => AccountRoute(),
+                      ),
+                    );
                   },
                 ),
                 Divider(),
