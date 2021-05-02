@@ -54,6 +54,13 @@ class SpidIdpSignInRoute extends StatelessWidget {
                 await cookieManager.deleteAllCookies();
 
                 await Provider.of<AuthService>(context, listen: false).signIn();
+
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                    builder: (_) => MapRoute(),
+                  ),
+                  (route) => false,
+                );
               }
             },
           );
