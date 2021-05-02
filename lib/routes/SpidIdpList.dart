@@ -63,6 +63,7 @@ class SpidIdpListRoute extends StatelessWidget {
                                   if (sessionIdCookie != null)
                                   {
                                     await Hive.box("auth").put("sessionId", sessionIdCookie.value);
+                                    await cookieManager.deleteAllCookies();
 
                                     print(sessionIdCookie.value);
                                   }
