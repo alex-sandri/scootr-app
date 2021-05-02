@@ -3,8 +3,7 @@ import 'package:scootr/config/Config.dart';
 
 class ThemeConfig {
   static ThemeData light(BuildContext context) {
-    return ThemeData(
-      fontFamily: "WorkSans",
+    return ThemeData.dark().copyWith(
       scaffoldBackgroundColor: Config.PRIMARY_COLOR,
       accentColor: Config.SECONDARY_COLOR,
       canvasColor: Config.PRIMARY_COLOR,
@@ -27,6 +26,14 @@ class ThemeConfig {
           fontFamily: "WorkSans",
           bodyColor: Config.SECONDARY_COLOR,
           displayColor: Config.SECONDARY_COLOR,
+        ),
+      primaryTextTheme: Theme.of(context).primaryTextTheme
+        .apply(
+          fontFamily: "WorkSans",
+        ),
+      accentTextTheme: Theme.of(context).accentTextTheme
+        .apply(
+          fontFamily: "WorkSans",
         ),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
