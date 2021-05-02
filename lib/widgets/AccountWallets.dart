@@ -5,6 +5,12 @@ import 'package:scootr/models/Wallet.dart';
 import 'package:scootr/services/Api.dart';
 import 'package:scootr/services/Auth.dart';
 
+enum WalletButton
+{
+  SET_DEFAULT,
+  DELETE,
+}
+
 class AccountWallets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -29,6 +35,23 @@ class AccountWallets extends StatelessWidget {
 
             return ListTile(
               title: Text(wallet.name),
+              trailing: PopupMenuButton(
+                itemBuilder: (context) {
+                  return [
+                    const PopupMenuItem<WalletButton>(
+                      value: WalletButton.SET_DEFAULT,
+                      child: Text("Imposta come predefinito"),
+                    ),
+                    const PopupMenuItem<WalletButton>(
+                      value: WalletButton.DELETE,
+                      child: Text("Elimina"),
+                    ),
+                  ];
+                },
+              ),
+              onTap: () {
+                // TODO
+              },
             );
           },
         );
