@@ -12,6 +12,9 @@ class ThemeConfig {
         color: Config.PRIMARY_COLOR,
         elevation: 0,
       ),
+      tabBarTheme: TabBarTheme(
+        indicator: UnderlineTabIndicator(),
+      ),
       textTheme: Theme.of(context).textTheme
         .copyWith(
           headline6: Theme.of(context).textTheme.headline6!.copyWith(
