@@ -20,14 +20,17 @@ class AccountWallets extends StatelessWidget {
           );
         }
 
-        final wallets = snapshot.data?.data;
+        final List<Wallet> wallets = snapshot.data!.data!;
 
-        return ListView(
-          children: wallets?.map((wallet) {
+        return ListView.builder(
+          itemCount: wallets.length,
+          itemBuilder: (context, index) {
+            final Wallet wallet = wallets[index];
+
             return ListTile(
               title: Text(wallet.name),
             );
-          }).toList() ?? [],
+          },
         );
       }
     );
