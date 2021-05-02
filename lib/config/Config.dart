@@ -11,23 +11,25 @@ class Config {
 
   static const Color SPID_COLOR = Color(0xff0066cc);
 
+  static const bool IS_PRODUCTION = !kDebugMode;
+
   // ignore: non_constant_identifier_names
-  static final String API_ENDPOINT = kDebugMode
-    ? (
+  static final String API_ENDPOINT = Config.IS_PRODUCTION
+    ? "https://api.scootr.it"
+    : (
       Platform.isAndroid
         ? "http://10.0.2.2:4000" // 10.0.2.2 is used by the Android emulator to point to the host's localhost
         : "http://localhost:4000"
-    )
-    : "https://api.scootr.it";
+    );
 
   // ignore: non_constant_identifier_names
-  static final String SPID_ENDPOINT = kDebugMode
-    ? (
+  static final String SPID_ENDPOINT = Config.IS_PRODUCTION
+    ? "https://spid.scootr.it"
+    : (
       Platform.isAndroid
         ? "http://10.0.2.2:8099"
         : "http://localhost:8099"
-    )
-    : "https://spid.scootr.it";
+    );
 
   static const List<SpidIdentityProvider> SPID_IDENTITY_PROVIDERS = [
     const SpidIdentityProvider(id: "arubaid", name: "Aruba ID"),
