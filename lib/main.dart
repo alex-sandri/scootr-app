@@ -17,7 +17,36 @@ void main() async {
   runApp(
     ChangeNotifierProvider(
       create: (_) => AuthService(),
-      child: MyApp(),
+      child: Builder(
+        builder: (context) {
+          SystemChrome.setSystemUIOverlayStyle(
+            SystemUiOverlayStyle(
+              statusBarColor: Colors.transparent,
+            ),
+          );
+
+          return FutureBuilder<bool>(
+            future: () async {
+              return Provider.of<AuthService>(context, listen: false).signIn();
+            }(),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData)
+              {
+                return MaterialApp(
+                  theme: ThemeConfig.light(context),
+                  home: Scaffold(
+                    body: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  ),
+                );
+              }
+
+              return MyApp();
+            },
+          );
+        },
+      ),
     ),
   );
 }
@@ -25,12 +54,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-      ),
-    );
-
     return MaterialApp(
       title: "scootr",
       theme: ThemeConfig.light(context),
