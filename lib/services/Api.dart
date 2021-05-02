@@ -119,6 +119,13 @@ class ApiService {
       path: "/sessions/$id",
     );
   }
+
+  static Future<ApiResponse<Session>> deleteSession(String id) async {
+    return ApiService.send<Session>(
+      method: ApiMethod.DELETE,
+      path: "/sessions/$id",
+    );
+  }
 }
 
 class ApiResponse<T> {

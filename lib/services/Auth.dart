@@ -32,7 +32,7 @@ class AuthService {
   static Future<void> signOut() async {
     if (AuthService.sessionId != null)
     {
-      await ApiService.deleteSession(AuthService.sessionId);
+      await ApiService.deleteSession(AuthService.sessionId!);
 
       AuthService.session = null;
       AuthService.sessionId = null;
