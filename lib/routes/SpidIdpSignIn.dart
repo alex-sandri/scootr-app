@@ -49,6 +49,7 @@ class SpidIdpSignInRoute extends StatelessWidget {
 
               if (sessionIdCookie != null)
               {
+                await Hive.openBox("auth");
                 await Hive.box("auth").put("sessionId", sessionIdCookie.value);
                 await cookieManager.deleteAllCookies();
 
