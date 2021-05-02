@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:intl/intl.dart';
 import 'package:latlong/latlong.dart';
+import 'package:provider/provider.dart';
 import 'package:scootr/config/Config.dart';
+import 'package:scootr/models/Session.dart';
 import 'package:scootr/routes/Home.dart';
 import 'package:scootr/services/Auth.dart';
 import 'package:scootr/widgets/AppBar.dart';
@@ -52,48 +54,55 @@ class MapRoute extends StatelessWidget {
           ),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "${AuthService.session!.user.firstName} ${AuthService.session!.user.lastName}",
-                    style: Theme.of(context).textTheme.headline6,
-                  ),
-                  Text(AuthService.session!.user.email),
-                  Text(DateFormat.yMMMMd(Localizations.localeOf(context).toString()).format(AuthService.session!.user.birthDate)),
-                  Text(AuthService.session!.user.fiscalNumber),
-                ],
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text("Account"),
-              onTap: () {
-                // TODO
-              },
-            ),
-            Divider(),
-            ListTile(
-              leading: Icon(Icons.logout),
-              title: Text("Esci"),
-              onTap: () async {
-                await AuthService.signOut();
+      drawer: Builder(
+        builder: (context) {
+          final AuthService auth = Provider.of<AuthService>(context, listen: false);
+          final Session session = auth.session!;
 
-                Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(
-                    builder: (_) => HomeRoute(),
+          return Drawer(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                DrawerHeader(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "${session.user.firstName} ${session.user.lastName}",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      Text(session.user.email),
+                      Text(DateFormat.yMMMMd(Localizations.localeOf(context).toString()).format(session.user.birthDate)),
+                      Text(session.user.fiscalNumber),
+                    ],
                   ),
-                  (route) => false,
-                );
-              },
+                ),
+                ListTile(
+                  leading: Icon(Icons.account_circle),
+                  title: Text("Account"),
+                  onTap: () {
+                    // TODO
+                  },
+                ),
+                Divider(),
+                ListTile(
+                  leading: Icon(Icons.logout),
+                  title: Text("Esci"),
+                  onTap: () async {
+                    await auth.signOut();
+
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                        builder: (_) => HomeRoute(),
+                      ),
+                      (route) => false,
+                    );
+                  },
+                ),
+              ],
             ),
-          ],
-        ),
+          );
+        }
       ),
     );
   }

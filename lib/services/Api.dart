@@ -1,9 +1,9 @@
 import 'dart:convert';
 
+import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/models/Session.dart';
-import 'package:scootr/services/Auth.dart';
 
 enum ApiMethod {
   GET,
@@ -20,7 +20,7 @@ class ApiService {
     Object? body,
   }) async {
     final Map<String, String> headers = {
-      "Authorization": "Bearer ${AuthService.sessionId}",
+      "Authorization": "Bearer ${Hive.box("auth").get("sessionId")}",
       "Content-Type": "application/json",
     };
 

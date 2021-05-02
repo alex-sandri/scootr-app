@@ -1,41 +1,43 @@
+import 'package:flutter/cupertino.dart';
 import 'package:hive/hive.dart';
 import 'package:scootr/models/Session.dart';
 import 'package:scootr/services/Api.dart';
 
-class AuthService {
-  static String? sessionId;
+class AuthService extends ChangeNotifier {
+  String? sessionId;
 
-  static Session? session;
+  Session? session;
 
-  static Future<bool> init() async {
-    final box = await Hive.openBox("auth");
+  static Future<void> init() async {
+    await Hive.openBox("auth");
+  }
 
-    AuthService.sessionId = box.get("sessionId");
+  Future<bool> signIn() async {
+    sessionId = Hive.box("auth").get("sessionId");
 
-    if (AuthService.sessionId == null)
+    if (sessionId == null)
     {
       return false;
     }
 
-    final response = await ApiService.retrieveSession(AuthService.sessionId ?? "");
+    final response = await ApiService.retrieveSession(sessionId ?? "");
 
     if (!response.success)
     {
       return false;
     }
 
-    AuthService.session = response.data;
+    session = response.data;
 
     return true;
   }
 
-  static Future<void> signOut() async {
-    if (AuthService.sessionId != null)
+  Future<void> signOut() async {
+    if (sessionId != null)
     {
-      await ApiService.deleteSession(AuthService.sessionId!);
+      await ApiService.deleteSession(sessionId!);
 
-      AuthService.session = null;
-      AuthService.sessionId = null;
+      session = sessionId = null;
 
       await Hive.deleteBoxFromDisk("auth");
     }

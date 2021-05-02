@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/routes/Home.dart';
 import 'package:scootr/routes/Map.dart';
@@ -11,7 +12,14 @@ import 'package:scootr/services/Auth.dart';
 void main() async {
   await Hive.initFlutter();
 
-  runApp(MyApp());
+  await AuthService.init();
+
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => AuthService(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -77,23 +85,9 @@ class MyApp extends StatelessWidget {
       supportedLocales: [
         const Locale("it"),
       ],
-      home: FutureBuilder<bool>(
-        future: AuthService.init(),
-        builder: (context, isSignedIn) {
-          if (!isSignedIn.hasData)
-          {
-            return Scaffold(
-              body: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
-          }
-
-          return isSignedIn.data!
-            ? MapRoute()
-            : HomeRoute();
-        },
-      ),
+      home: Provider.of<AuthService>(context).session != null
+        ? MapRoute()
+        : HomeRoute(),
     );
   }
 }
