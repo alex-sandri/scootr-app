@@ -69,6 +69,21 @@ class MapRoute extends StatelessWidget {
                 ],
               ),
             ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text("Account"),
+              onTap: () {
+                // TODO
+              },
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text("Esci"),
+              onTap: () {
+                // TODO
+              },
+            ),
           ],
         ),
       ),
