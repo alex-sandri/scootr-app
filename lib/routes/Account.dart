@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scootr/widgets/AccountDetails.dart';
+import 'package:scootr/widgets/AccountWallets.dart';
 import 'package:scootr/widgets/AppBar.dart';
 import 'package:scootr/widgets/Drawer.dart';
 
@@ -29,7 +30,7 @@ class AccountRoute extends StatelessWidget {
         body: TabBarView(
           children: [
             AccountDetails(),
-            Text("Portafogli"),
+            AccountWallets(),
             Text("Corse"),
           ],
         ),
