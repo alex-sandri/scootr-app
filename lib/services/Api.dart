@@ -4,6 +4,8 @@ import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/models/Session.dart';
+import 'package:scootr/models/User.dart';
+import 'package:scootr/models/Wallet.dart';
 
 enum ApiMethod {
   GET,
@@ -18,6 +20,7 @@ class ApiService {
     required ApiMethod method,
     required String path,
     Object? body,
+    T Function(dynamic json)? deserialize,
   }) async {
     final Map<String, String> headers = {
       "Authorization": "Bearer ${Hive.box("auth").get("sessionId")}",
@@ -102,21 +105,23 @@ class ApiService {
     {
       result.errors = json["details"] ?? [];
     }
-    else
+    else if (deserialize != null)
     {
-      switch (T)
-      {
-        case Session: result.data = Session.deserialize(json) as T; break;
-      }
+      result.data = deserialize(json);
     }
 
     return result;
   }
 
+  /* -----------
+  -- SESSIONS --
+  ----------- */
+
   static Future<ApiResponse<Session>> retrieveSession(String id) async {
     return ApiService.send<Session>(
       method: ApiMethod.GET,
       path: "/sessions/$id",
+      deserialize: (_) => Session.deserialize(_ as Map<String, dynamic>),
     );
   }
 
@@ -124,6 +129,22 @@ class ApiService {
     return ApiService.send<Session>(
       method: ApiMethod.DELETE,
       path: "/sessions/$id",
+    );
+  }
+
+  /* ----------
+  -- WALLETS --
+  ---------- */
+
+  static Future<ApiResponse<List<Wallet>>> listWalletsForUser(User user) async {
+    return ApiService.send<List<Wallet>>(
+      method: ApiMethod.GET,
+      path: "/users/${user.id}/wallets",
+      deserialize: (_) {
+        return (_ as List<Map<String, dynamic>>)
+          .map(Wallet.deserialize)
+          .toList();
+      },
     );
   }
 }
