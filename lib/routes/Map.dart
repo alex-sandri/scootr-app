@@ -5,7 +5,6 @@ import 'package:latlong/latlong.dart';
 import 'package:provider/provider.dart';
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/models/Session.dart';
-import 'package:scootr/routes/Home.dart';
 import 'package:scootr/services/Auth.dart';
 import 'package:scootr/widgets/AppBar.dart';
 
@@ -88,16 +87,7 @@ class MapRoute extends StatelessWidget {
                 ListTile(
                   leading: Icon(Icons.logout),
                   title: Text("Esci"),
-                  onTap: () async {
-                    await auth.signOut();
-
-                    Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(
-                        builder: (_) => HomeRoute(),
-                      ),
-                      (route) => false,
-                    );
-                  },
+                  onTap: auth.signOut,
                 ),
               ],
             ),

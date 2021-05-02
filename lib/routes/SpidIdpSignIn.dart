@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:hive/hive.dart';
+import 'package:provider/provider.dart';
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/models/SpidIdentityProvider.dart';
 import 'package:scootr/routes/Map.dart';
+import 'package:scootr/services/Auth.dart';
 import 'package:scootr/widgets/AppBar.dart';
 
 class SpidIdpSignInRoute extends StatelessWidget {
@@ -50,12 +52,7 @@ class SpidIdpSignInRoute extends StatelessWidget {
                 await Hive.box("auth").put("sessionId", sessionIdCookie.value);
                 await cookieManager.deleteAllCookies();
 
-                Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(
-                    builder: (_) => MapRoute(),
-                  ),
-                  (route) => false,
-                );
+                await Provider.of<AuthService>(context, listen: false).signIn();
               }
             },
           );
