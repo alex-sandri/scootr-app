@@ -64,7 +64,7 @@ class MapRoute extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline6,
                   ),
                   Text(AuthService.session!.user.email),
-                  Text(DateFormat.yMd().format(AuthService.session!.user.birthDate)),
+                  Text(DateFormat.yMMMMd(Localizations.localeOf(context).toString()).format(AuthService.session!.user.birthDate)),
                   Text(AuthService.session!.user.fiscalNumber),
                 ],
               ),
