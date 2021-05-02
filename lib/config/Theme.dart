@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scootr/config/Config.dart';
 
 class ThemeConfig {
-  static ThemeData light(BuildContext context) {
+  static ThemeData dark(BuildContext context) {
     return ThemeData.dark().copyWith(
       scaffoldBackgroundColor: Config.PRIMARY_COLOR,
       accentColor: Config.SECONDARY_COLOR,

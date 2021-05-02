@@ -33,7 +33,7 @@ void main() async {
               if (!snapshot.hasData)
               {
                 return MaterialApp(
-                  theme: ThemeConfig.light(context),
+                  theme: ThemeConfig.dark(context),
                   home: Scaffold(
                     body: Center(
                       child: CircularProgressIndicator(),
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "scootr",
-      theme: ThemeConfig.light(context),
+      theme: ThemeConfig.dark(context),
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
