@@ -8,16 +8,11 @@ class AccountRoute extends StatelessWidget {
     return DefaultTabController(
       length: 1,
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("Account"),
-          bottom: TabBar(
-            tabs: [
-              Tab(
-                icon: Icon(Icons.account_circle),
-                text: "Dettagli"
-              ),
-            ],
-          ),
+        appBar: ScootrAppBar(
+          title: "Account",
+          tabs: [
+            Tab(icon: Icon(Icons.account_circle), text: "Dettagli"),
+          ],
         ),
         body: TabBarView(
           children: [

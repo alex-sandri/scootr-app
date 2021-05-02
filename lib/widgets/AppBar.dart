@@ -13,7 +13,7 @@ class ScootrAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.title,
     this.actions,
     this.tabs,
-  }): preferredSize = Size.fromHeight(kToolbarHeight);
+  }): preferredSize = Size.fromHeight(kToolbarHeight + (tabs != null ? 74 : 0));
 
   @override
   Widget build(BuildContext context) {
