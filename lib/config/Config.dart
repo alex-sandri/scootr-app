@@ -20,6 +20,15 @@ class Config {
     )
     : "https://api.scootr.it";
 
+  // ignore: non_constant_identifier_names
+  static final String SPID_ENDPOINT = kDebugMode
+    ? (
+      Platform.isAndroid
+        ? "http://10.0.2.2:8099"
+        : "http://localhost:8099"
+    )
+    : "https://spid.scootr.it";
+
   static const List<SpidIdentityProvider> SPID_IDENTITY_PROVIDERS = [
     const SpidIdentityProvider(id: "arubaid", name: "Aruba ID"),
     const SpidIdentityProvider(id: "infocertid", name: "Infocert ID"),

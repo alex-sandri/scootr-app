@@ -35,7 +35,7 @@ class SpidIdpListRoute extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (_) => InAppWebView(
                             initialUrlRequest: URLRequest(
-                              url: Uri.parse("TODO"),
+                              url: Uri.parse("${Config.SPID_ENDPOINT}/signin.php?idp=${identityProvider.id}"),
                             ),
                           ),
                         ),
