@@ -31,8 +31,8 @@ class ScootrDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text("Home"),
+            leading: Icon(Icons.map),
+            title: Text("Mappa"),
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
