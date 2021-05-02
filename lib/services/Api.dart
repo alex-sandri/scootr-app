@@ -141,7 +141,8 @@ class ApiService {
       method: ApiMethod.GET,
       path: "/users/${user.id}/wallets",
       deserialize: (_) {
-        return (_ as List<Map<String, dynamic>>)
+        return (_ as List<dynamic>)
+          .map((_) => Map<String, dynamic>.from(_))
           .map(Wallet.deserialize)
           .toList();
       },
