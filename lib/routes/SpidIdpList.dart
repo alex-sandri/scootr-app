@@ -3,6 +3,7 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive/hive.dart';
 import 'package:scootr/config/Config.dart';
+import 'package:scootr/routes/Map.dart';
 import 'package:scootr/widgets/AppBar.dart';
 
 class SpidIdpListRoute extends StatelessWidget {
@@ -65,7 +66,12 @@ class SpidIdpListRoute extends StatelessWidget {
                                     await Hive.box("auth").put("sessionId", sessionIdCookie.value);
                                     await cookieManager.deleteAllCookies();
 
-                                    print(sessionIdCookie.value);
+                                    Navigator.of(context).pushAndRemoveUntil(
+                                      MaterialPageRoute(
+                                        builder: (_) => MapRoute(),
+                                      ),
+                                      (route) => false,
+                                    );
                                   }
                                 },
                               ),
