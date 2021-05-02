@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "WorkSans",
         scaffoldBackgroundColor: Config.PRIMARY_COLOR,
         accentColor: Config.SECONDARY_COLOR,
+        canvasColor: Config.PRIMARY_COLOR,
         appBarTheme: AppBarTheme(
           brightness: Brightness.dark,
           color: Config.PRIMARY_COLOR,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong/latlong.dart';
 import 'package:scootr/config/Config.dart';
+import 'package:scootr/services/Auth.dart';
 import 'package:scootr/widgets/AppBar.dart';
 
 class MapRoute extends StatelessWidget {
@@ -48,6 +49,27 @@ class MapRoute extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "${AuthService.session!.user.firstName} ${AuthService.session!.user.lastName}",
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                  Text(AuthService.session!.user.email),
+                  Text(AuthService.session!.user.birthDate.toString()),
+                  Text(AuthService.session!.user.fiscalNumber),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
