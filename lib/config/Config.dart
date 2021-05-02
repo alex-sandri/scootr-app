@@ -13,20 +13,13 @@ class Config {
 
   static const bool IS_PRODUCTION = !kDebugMode;
 
-  // ignore: non_constant_identifier_names
-  static final String LOCALHOST = Platform.isAndroid
-        ? "10.0.2.2" // 10.0.2.2 is used by the Android emulator to point to the host's localhost
-        : "localhost";
-
-  // ignore: non_constant_identifier_names
-  static final String API_ENDPOINT = Config.IS_PRODUCTION
+  static const String API_ENDPOINT = Config.IS_PRODUCTION
     ? "https://api.scootr.it"
-    : "http://${Config.LOCALHOST}:4000";
+    : "http://localhost:4000";
 
-  // ignore: non_constant_identifier_names
-  static final String SPID_ENDPOINT = Config.IS_PRODUCTION
+  static const String SPID_ENDPOINT = Config.IS_PRODUCTION
     ? "https://spid.scootr.it"
-    : "http://${Config.LOCALHOST}:8099";
+    : "http://localhost:8099";
 
   static const List<SpidIdentityProvider> SPID_IDENTITY_PROVIDERS = [
     const SpidIdentityProvider(id: "arubaid", name: "Aruba ID"),
