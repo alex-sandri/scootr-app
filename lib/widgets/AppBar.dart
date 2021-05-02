@@ -4,6 +4,7 @@ class ScootrAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
 
   final List<Widget>? actions;
+  final List<Tab>? tabs;
 
   @override
   final Size preferredSize;
@@ -11,6 +12,7 @@ class ScootrAppBar extends StatelessWidget implements PreferredSizeWidget {
   ScootrAppBar({
     this.title,
     this.actions,
+    this.tabs,
   }): preferredSize = Size.fromHeight(kToolbarHeight);
 
   @override
@@ -18,6 +20,9 @@ class ScootrAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(title ?? "scootr"),
       actions: actions,
+      bottom: tabs != null
+        ? TabBar(tabs: tabs ?? [])
+        : null,
     );
   }
 }
