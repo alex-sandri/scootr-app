@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:intl/intl.dart';
 import 'package:latlong/latlong.dart';
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/services/Auth.dart';
@@ -63,7 +64,7 @@ class MapRoute extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline6,
                   ),
                   Text(AuthService.session!.user.email),
-                  Text(AuthService.session!.user.birthDate.toString()),
+                  Text(DateFormat.yMd().format(AuthService.session!.user.birthDate)),
                   Text(AuthService.session!.user.fiscalNumber),
                 ],
               ),
