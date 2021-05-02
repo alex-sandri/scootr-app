@@ -18,7 +18,9 @@ class SpidIdpSignInRoute extends StatelessWidget {
     final CookieManager cookieManager = CookieManager.instance();
 
     return Scaffold(
-      appBar: ScootrAppBar(),
+      appBar: ScootrAppBar(
+        title: "SPID - ${idp.name}",
+      ),
       body: FutureBuilder<bool>(
         future: () async {
           await cookieManager.deleteAllCookies();
