@@ -21,9 +21,6 @@ class ThemeConfig {
             fontSize: 30,
             fontWeight: FontWeight.w700,
           ),
-          subtitle1: Theme.of(context).textTheme.subtitle1!.copyWith(
-            fontWeight: FontWeight.w700,
-          ),
         )
         .apply(
           fontFamily: "WorkSans",

@@ -9,29 +9,38 @@ class AccountDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     final Session session = Provider.of<AuthService>(context).session!;
 
-    return ListView(
-      children: [
-        ListTile(
-          title: Text("Nome"),
-          subtitle: Text(session.user.firstName),
+    return Theme(
+      data: Theme.of(context).copyWith(
+        textTheme: Theme.of(context).textTheme.copyWith(
+          subtitle1: Theme.of(context).textTheme.subtitle1!.copyWith(
+            fontWeight: FontWeight.w700,
+          ),
         ),
-        ListTile(
-          title: Text("Cognome"),
-          subtitle: Text(session.user.lastName),
-        ),
-        ListTile(
-          title: Text("Email"),
-          subtitle: Text(session.user.email),
-        ),
-        ListTile(
-          title: Text("Data di nascita"),
-          subtitle: Text(DateFormat.yMMMMd(Localizations.localeOf(context).toString()).format(session.user.birthDate)),
-        ),
-        ListTile(
-          title: Text("Codice Fiscale"),
-          subtitle: Text(session.user.fiscalNumber),
-        ),
-      ],
+      ),
+      child: ListView(
+        children: [
+          ListTile(
+            title: Text("Nome"),
+            subtitle: Text(session.user.firstName),
+          ),
+          ListTile(
+            title: Text("Cognome"),
+            subtitle: Text(session.user.lastName),
+          ),
+          ListTile(
+            title: Text("Email"),
+            subtitle: Text(session.user.email),
+          ),
+          ListTile(
+            title: Text("Data di nascita"),
+            subtitle: Text(DateFormat.yMMMMd(Localizations.localeOf(context).toString()).format(session.user.birthDate)),
+          ),
+          ListTile(
+            title: Text("Codice Fiscale"),
+            subtitle: Text(session.user.fiscalNumber),
+          ),
+        ],
+      ),
     );
   }
 }
