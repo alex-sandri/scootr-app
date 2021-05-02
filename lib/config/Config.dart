@@ -32,7 +32,7 @@ class Config {
     const SpidIdentityProvider(id: "spiditalia", name: "SPIDItalia Register.it"),
     const SpidIdentityProvider(id: "timid", name: "Tim ID"),
 
-    if (kDebugMode)
+    if (!Config.IS_PRODUCTION)
       const SpidIdentityProvider(id: "idp_testenv2", name: "Test"),
   ];
 }
