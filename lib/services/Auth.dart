@@ -1,3 +1,4 @@
+import 'package:hive/hive.dart';
 import 'package:scootr/models/Session.dart';
 import 'package:scootr/services/Api.dart';
 
@@ -7,7 +8,9 @@ class AuthService {
   static Session? session;
 
   static Future<bool> init() async {
-    AuthService.sessionId = "ses_e3a0dde1372250c92ad7c5681a7a63e3a63d6a1e94dbded4606e4f27722ccbb6a940e47611bfee4bc20eba93b3de306b6236";
+    final box = await Hive.openBox("auth");
+
+    AuthService.sessionId = box.get("sessionId");
 
     if (AuthService.sessionId == null)
     {
