@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:scootr/models/Session.dart';
 import 'package:scootr/routes/Account.dart';
+import 'package:scootr/routes/Map.dart';
 import 'package:scootr/services/Auth.dart';
 
 class ScootrDrawer extends StatelessWidget {
@@ -28,6 +29,17 @@ class ScootrDrawer extends StatelessWidget {
                 Text(session.user.fiscalNumber),
               ],
             ),
+          ),
+          ListTile(
+            leading: Icon(Icons.home),
+            title: Text("Home"),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => MapRoute(),
+                ),
+              );
+            },
           ),
           ListTile(
             leading: Icon(Icons.account_circle),
