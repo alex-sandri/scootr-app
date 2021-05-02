@@ -29,6 +29,8 @@ class AuthService extends ChangeNotifier {
 
     session = response.data;
 
+    notifyListeners();
+
     return true;
   }
 
@@ -40,6 +42,8 @@ class AuthService extends ChangeNotifier {
       session = sessionId = null;
 
       await Hive.deleteBoxFromDisk("auth");
+
+      notifyListeners();
     }
   }
 }
