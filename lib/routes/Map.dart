@@ -3,6 +3,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:intl/intl.dart';
 import 'package:latlong/latlong.dart';
 import 'package:scootr/config/Config.dart';
+import 'package:scootr/routes/Home.dart';
 import 'package:scootr/services/Auth.dart';
 import 'package:scootr/widgets/AppBar.dart';
 
@@ -80,8 +81,15 @@ class MapRoute extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.logout),
               title: Text("Esci"),
-              onTap: () {
-                // TODO
+              onTap: () async {
+                await AuthService.signOut();
+
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                    builder: (_) => HomeRoute(),
+                  ),
+                  (route) => false,
+                );
               },
             ),
           ],
