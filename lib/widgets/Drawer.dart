@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:scootr/models/Session.dart';
 import 'package:scootr/routes/Account.dart';
@@ -25,8 +24,6 @@ class ScootrDrawer extends StatelessWidget {
                   "${session.user.firstName} ${session.user.lastName}",
                   style: Theme.of(context).textTheme.headline6,
                 ),
-                Text(session.user.email),
-                Text(DateFormat.yMMMMd(Localizations.localeOf(context).toString()).format(session.user.birthDate)),
                 Text(session.user.fiscalNumber),
               ],
             ),
