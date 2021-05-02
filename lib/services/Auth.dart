@@ -4,8 +4,6 @@ import 'package:scootr/models/Session.dart';
 import 'package:scootr/services/Api.dart';
 
 class AuthService extends ChangeNotifier {
-  String? sessionId;
-
   Session? session;
 
   static Future<void> init() async {
@@ -13,14 +11,14 @@ class AuthService extends ChangeNotifier {
   }
 
   Future<bool> signIn() async {
-    sessionId = Hive.box("auth").get("sessionId");
+    final String? sessionId = Hive.box("auth").get("sessionId");
 
     if (sessionId == null)
     {
       return false;
     }
 
-    final response = await ApiService.retrieveSession(sessionId ?? "");
+    final response = await ApiService.retrieveSession(sessionId);
 
     if (!response.success)
     {
@@ -35,11 +33,11 @@ class AuthService extends ChangeNotifier {
   }
 
   Future<void> signOut() async {
-    if (sessionId != null)
+    if (session != null)
     {
-      await ApiService.deleteSession(sessionId!);
+      await ApiService.deleteSession(session!.id);
 
-      session = sessionId = null;
+      session = null;
 
       await Hive.deleteBoxFromDisk("auth");
 
