@@ -7,7 +7,7 @@ import 'package:scootr/services/Auth.dart';
 class AccountDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Session session = Provider.of<AuthService>(context).session!;
+    final Session session = Provider.of<AuthService>(context, listen: false).session!;
 
     return Theme(
       data: Theme.of(context).copyWith(

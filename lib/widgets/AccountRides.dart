@@ -9,7 +9,7 @@ import 'package:scootr/services/Auth.dart';
 class AccountRides extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final User user = Provider.of<AuthService>(context).session!.user;
+    final User user = Provider.of<AuthService>(context, listen: false).session!.user;
 
     return FutureBuilder<ApiResponse<List<Ride>>>(
       future: ApiService.listRidesForUser(user),

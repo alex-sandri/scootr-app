@@ -15,7 +15,7 @@ enum WalletButton
 class AccountWallets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final User user = Provider.of<AuthService>(context).session!.user;
+    final User user = Provider.of<AuthService>(context, listen: false).session!.user;
 
     return FutureBuilder<ApiResponse<List<Wallet>>>(
       future: ApiService.listWalletsForUser(user),
