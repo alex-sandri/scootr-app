@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:scootr/models/Wallet.dart';
 import 'package:scootr/widgets/AppBar.dart';
 import 'package:scootr/widgets/Drawer.dart';
+import 'package:scootr/widgets/WalletDetails.dart';
+import 'package:scootr/widgets/WalletPaymentMethods.dart';
+import 'package:scootr/widgets/WalletSubscriptions.dart';
+import 'package:scootr/widgets/WalletTransactions.dart';
 
 class WalletRoute extends StatelessWidget {
   final Wallet _wallet;
@@ -36,10 +40,10 @@ class WalletRoute extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            Container(),
-            Container(),
-            Container(),
-            Container(),
+            WalletDetails(_wallet),
+            WalletPaymentMethods(_wallet),
+            WalletSubscriptions(_wallet),
+            WalletTransactions(_wallet),
           ],
         ),
         drawer: ScootrDrawer(),
