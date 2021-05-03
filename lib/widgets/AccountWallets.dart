@@ -34,33 +34,36 @@ class AccountWallets extends StatelessWidget {
           itemBuilder: (context, index) {
             final Wallet wallet = wallets[index];
 
-            return ListTile(
-              leading: wallet.isDefault ?? false
-                ? Icon(Icons.favorite)
-                : null,
-              title: Text(wallet.name),
-              trailing: PopupMenuButton(
-                itemBuilder: (context) {
-                  return [
-                    const PopupMenuItem<WalletButton>(
-                      value: WalletButton.SET_DEFAULT,
-                      child: Text("Imposta come predefinito"),
-                    ),
-                    const PopupMenuItem<WalletButton>(
-                      value: WalletButton.DELETE,
-                      child: Text(
-                        "Elimina",
-                        style: TextStyle(
-                          color: Config.DANGER_COLOR,
+            return Card(
+              child: ListTile(
+                shape: Theme.of(context).cardTheme.shape,
+                leading: wallet.isDefault ?? false
+                  ? Icon(Icons.favorite)
+                  : null,
+                title: Text(wallet.name),
+                trailing: PopupMenuButton(
+                  itemBuilder: (context) {
+                    return [
+                      const PopupMenuItem<WalletButton>(
+                        value: WalletButton.SET_DEFAULT,
+                        child: Text("Imposta come predefinito"),
+                      ),
+                      const PopupMenuItem<WalletButton>(
+                        value: WalletButton.DELETE,
+                        child: Text(
+                          "Elimina",
+                          style: TextStyle(
+                            color: Config.DANGER_COLOR,
+                          ),
                         ),
                       ),
-                    ),
-                  ];
+                    ];
+                  },
+                ),
+                onTap: () {
+                  // TODO
                 },
               ),
-              onTap: () {
-                // TODO
-              },
             );
           },
         );
