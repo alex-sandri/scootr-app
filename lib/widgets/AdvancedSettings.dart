@@ -64,6 +64,17 @@ class AdvancedSettings extends StatelessWidget {
                     children: [
                       Text("Se decidi di proseguire con l'eliminazione del tuo account:"),
                       SizedBox(height: 10),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("- Non potrai più recuperarne i dati"),
+                            Text("- Qualsiasi importo di denaro attualmente nei tuoi portafogli non verrà restituito"),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 10),
                       TextButton(
                         child: Text("Elimina"),
                         style: Theme.of(context).textButtonTheme.style!.copyWith(
