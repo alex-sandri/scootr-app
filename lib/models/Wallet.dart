@@ -19,7 +19,7 @@ class Wallet {
     return Wallet(
       id: json["id"],
       name: json["name"],
-      balance: num.parse(json["balance"]),
+      balance: json["balance"],
       user: User.deserialize(json["user"]),
       isDefault: json["__metadata"]?["is_default"],
     );
