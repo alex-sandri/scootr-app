@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/models/User.dart';
 import 'package:scootr/models/Wallet.dart';
+import 'package:scootr/routes/Wallet.dart';
 import 'package:scootr/services/Api.dart';
 import 'package:scootr/services/Auth.dart';
 
@@ -61,7 +62,13 @@ class AccountWallets extends StatelessWidget {
                   },
                 ),
                 onTap: () {
-                  // TODO
+                  Navigator
+                    .of(context)
+                    .push(
+                      MaterialPageRoute(
+                        builder: (_) => WalletRoute(wallet),
+                      ),
+                    );
                 },
               ),
             );
