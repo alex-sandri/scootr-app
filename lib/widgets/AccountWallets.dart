@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:scootr/config/Config.dart';
 import 'package:scootr/models/User.dart';
 import 'package:scootr/models/Wallet.dart';
 import 'package:scootr/services/Api.dart';
@@ -44,7 +45,12 @@ class AccountWallets extends StatelessWidget {
                     ),
                     const PopupMenuItem<WalletButton>(
                       value: WalletButton.DELETE,
-                      child: Text("Elimina"),
+                      child: Text(
+                        "Elimina",
+                        style: TextStyle(
+                          color: Config.DANGER_COLOR,
+                        ),
+                      ),
                     ),
                   ];
                 },
