@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:scootr/config/Config.dart';
+import 'package:scootr/models/Ride.dart';
 import 'package:scootr/models/Session.dart';
 import 'package:scootr/models/User.dart';
 import 'package:scootr/models/Wallet.dart';
@@ -111,6 +112,23 @@ class ApiService {
     }
 
     return result;
+  }
+
+  /* ----------
+  -- RIDES --
+  ---------- */
+
+  static Future<ApiResponse<List<Ride>>> listRidesForUser(User user) async {
+    return ApiService.send<List<Ride>>(
+      method: ApiMethod.GET,
+      path: "/users/${user.id}/rides",
+      deserialize: (_) {
+        return (_ as List<dynamic>)
+          .map((_) => Map<String, dynamic>.from(_))
+          .map(Ride.deserialize)
+          .toList();
+      },
+    );
   }
 
   /* -----------

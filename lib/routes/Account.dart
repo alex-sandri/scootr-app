@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scootr/widgets/AccountDetails.dart';
+import 'package:scootr/widgets/AccountRides.dart';
 import 'package:scootr/widgets/AccountWallets.dart';
 import 'package:scootr/widgets/AppBar.dart';
 import 'package:scootr/widgets/Drawer.dart';
@@ -31,7 +32,7 @@ class AccountRoute extends StatelessWidget {
           children: [
             AccountDetails(),
             AccountWallets(),
-            Text("Corse"),
+            AccountRides(),
           ],
         ),
         drawer: ScootrDrawer(),
