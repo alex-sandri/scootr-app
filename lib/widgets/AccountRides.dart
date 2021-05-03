@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:scootr/models/Ride.dart';
 import 'package:scootr/models/User.dart';
@@ -30,13 +31,67 @@ class AccountRides extends StatelessWidget {
             return Card(
               child: InkWell(
                 customBorder: Theme.of(context).cardTheme.shape,
-                child: Column(
-                  children: [
-                    ListTile(
-                      title: Text("Iniziata"),
-                      subtitle: Text(ride.startTime.toIso8601String()),
+                child: Theme(
+                  data: Theme.of(context).copyWith(
+                    textTheme: Theme.of(context).textTheme.copyWith(
+                      subtitle1: Theme.of(context).textTheme.subtitle1!.copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
-                  ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ListTile(
+                        leading: Icon(Icons.watch_later_outlined),
+                        title: Text("Iniziata"),
+                        subtitle: Text(
+                          DateFormat
+                            .yMMMMd(Localizations.localeOf(context).toString())
+                            .add_jms()
+                            .format(ride.startTime),
+                        ),
+                      ),
+
+                      if (ride.endTime == null)
+                        ListTile(
+                          leading: Icon(Icons.watch_later_outlined),
+                          title: Text(
+                            "In corso",
+                            style: TextStyle(
+                              fontWeight: FontWeight.normal,
+                              fontStyle: FontStyle.italic,
+                            ),
+                          ),
+                        ),
+
+                      if (ride.endTime != null)
+                        ListTile(
+                          leading: Icon(Icons.watch_later_outlined),
+                          title: Text("Conclusa"),
+                          subtitle: Text(
+                            DateFormat
+                              .yMMMMd(Localizations.localeOf(context).toString())
+                              .add_jms()
+                              .format(ride.endTime!)
+                          ),
+                        ),
+
+                      if (ride.amount != null)
+                        ListTile(
+                          leading: Icon(Icons.euro),
+                          title: Text("Costo"),
+                          subtitle: Text(
+                            NumberFormat
+                              .currency(
+                                locale: Localizations.localeOf(context).toString(),
+                                symbol: "€",
+                              )
+                              .format(ride.amount),
+                          ),
+                        ),
+                    ],
+                  ),
                 ),
                 onTap: () {
                   // TODO
