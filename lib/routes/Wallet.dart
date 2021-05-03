@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:scootr/models/Wallet.dart';
-import 'package:scootr/widgets/AppBar.dart';
-import 'package:scootr/widgets/Drawer.dart';
-import 'package:scootr/widgets/WalletDetails.dart';
-import 'package:scootr/widgets/WalletPaymentMethods.dart';
-import 'package:scootr/widgets/WalletSubscriptions.dart';
-import 'package:scootr/widgets/WalletTransactions.dart';
+import 'package:scootr/widgets/misc/AppBar.dart';
+import 'package:scootr/widgets/misc/Drawer.dart';
+import 'package:scootr/widgets/wallet/WalletDetails.dart';
+import 'package:scootr/widgets/wallet/WalletPaymentMethods.dart';
+import 'package:scootr/widgets/wallet/WalletSubscriptions.dart';
+import 'package:scootr/widgets/wallet/WalletTransactions.dart';
 
 class WalletRoute extends StatelessWidget {
   final Wallet _wallet;

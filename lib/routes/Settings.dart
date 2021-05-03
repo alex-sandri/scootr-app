@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:scootr/widgets/AdvancedSettings.dart';
-import 'package:scootr/widgets/AppBar.dart';
-import 'package:scootr/widgets/Drawer.dart';
+import 'package:scootr/widgets/settings/AdvancedSettings.dart';
+import 'package:scootr/widgets/misc/AppBar.dart';
+import 'package:scootr/widgets/misc/Drawer.dart';
 
 class SettingsRoute extends StatelessWidget {
   @override

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:scootr/widgets/AccountDetails.dart';
-import 'package:scootr/widgets/AccountRides.dart';
-import 'package:scootr/widgets/AccountWallets.dart';
-import 'package:scootr/widgets/AppBar.dart';
-import 'package:scootr/widgets/Drawer.dart';
+import 'package:scootr/widgets/account/AccountDetails.dart';
+import 'package:scootr/widgets/account/AccountRides.dart';
+import 'package:scootr/widgets/account/AccountWallets.dart';
+import 'package:scootr/widgets/misc/AppBar.dart';
+import 'package:scootr/widgets/misc/Drawer.dart';
 
 class AccountRoute extends StatelessWidget {
   @override

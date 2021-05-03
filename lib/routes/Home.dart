@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/routes/SpidIdpList.dart';
-import 'package:scootr/widgets/AppBar.dart';
+import 'package:scootr/widgets/misc/AppBar.dart';
 
 class HomeRoute extends StatelessWidget {
   @override
