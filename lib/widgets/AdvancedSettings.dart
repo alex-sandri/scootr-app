@@ -63,7 +63,7 @@ class AdvancedSettings extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("Se decidi di proseguire con l'eliminazione del tuo account:"),
-                      SizedBox(height: 10),
+                      SizedBox(height: 5),
                       Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: Column(
