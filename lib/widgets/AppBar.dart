@@ -21,7 +21,10 @@ class ScootrAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Text(title ?? "scootr"),
       actions: actions,
       bottom: tabs != null
-        ? TabBar(tabs: tabs ?? [])
+        ? TabBar(
+          tabs: tabs ?? [],
+          isScrollable: true,
+        )
         : null,
     );
   }
