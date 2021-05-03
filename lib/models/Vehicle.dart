@@ -14,7 +14,7 @@ class Vehicle {
   static Vehicle deserialize(Map<String, dynamic> json) {
     return Vehicle(
       id: json["id"],
-      batteryLevel: int.parse(json["batteryLevel"]),
+      batteryLevel: json["battery_level"],
       location: Location.deserialize(json["location"]),
     );
   }

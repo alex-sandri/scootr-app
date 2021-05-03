@@ -9,8 +9,8 @@ class Location {
 
   static Location deserialize(Map<String, dynamic> json) {
     return Location(
-      latitude: num.parse(json["latitude"]),
-      longitude: num.parse(json["longitude"]),
+      latitude: json["latitude"],
+      longitude: json["longitude"],
     );
   }
 }

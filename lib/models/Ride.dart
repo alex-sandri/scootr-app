@@ -24,8 +24,12 @@ class Ride {
       vehicle: Vehicle.deserialize(json["vehicle"]),
       wallet: Wallet.deserialize(json["wallet"]),
       startTime: DateTime.parse(json["start_time"]),
-      endTime: DateTime.parse(json["end_time"]),
-      amount: num.parse(json["amount"]),
+      endTime: json["end_time"] != null
+        ? DateTime.parse(json["end_time"])
+        : null,
+      amount: json["amount"] != null
+        ? json["amount"]
+        : null,
     );
   }
 }

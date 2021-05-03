@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:scootr/models/Ride.dart';
 import 'package:scootr/models/User.dart';
-import 'package:scootr/models/Wallet.dart';
 import 'package:scootr/services/Api.dart';
 import 'package:scootr/services/Auth.dart';
 
@@ -10,8 +10,8 @@ class AccountRides extends StatelessWidget {
   Widget build(BuildContext context) {
     final User user = Provider.of<AuthService>(context).session!.user;
 
-    return FutureBuilder<ApiResponse<List<Wallet>>>(
-      future: ApiService.listWalletsForUser(user),
+    return FutureBuilder<ApiResponse<List<Ride>>>(
+      future: ApiService.listRidesForUser(user),
       builder: (context, snapshot) {
         if (!snapshot.hasData)
         {
@@ -20,18 +20,15 @@ class AccountRides extends StatelessWidget {
           );
         }
 
-        final List<Wallet> wallets = snapshot.data!.data!;
+        final List<Ride> rides = snapshot.data!.data!;
 
         return ListView.builder(
-          itemCount: wallets.length,
+          itemCount: rides.length,
           itemBuilder: (context, index) {
-            final Wallet wallet = wallets[index];
+            final Ride ride = rides[index];
 
             return ListTile(
-              leading: wallet.isDefault ?? false
-                ? Icon(Icons.favorite)
-                : null,
-              title: Text(wallet.name),
+              title: Text(ride.id),
               onTap: () {
                 // TODO
               },
