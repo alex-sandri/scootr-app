@@ -15,7 +15,7 @@ class AccountRoute extends StatelessWidget {
           title: "Account",
           tabs: [
             Tab(
-              icon: Icon(Icons.account_circle),
+              icon: Icon(Icons.info),
               text: "Dettagli",
             ),
             Tab(
