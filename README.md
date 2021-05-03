@@ -1,6 +1,6 @@
 # scootr app
 
-scootr's app
+scootr's mobile app
 
 ## Test
 
