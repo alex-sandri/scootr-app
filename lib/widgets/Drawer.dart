@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:scootr/config/Config.dart';
 import 'package:scootr/models/Session.dart';
 import 'package:scootr/routes/Account.dart';
 import 'package:scootr/routes/Map.dart';
@@ -17,6 +18,9 @@ class ScootrDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
+            decoration: BoxDecoration(
+              color: Config.DANGER_COLOR,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
