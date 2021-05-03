@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scootr/widgets/AdvancedSettings.dart';
 import 'package:scootr/widgets/AppBar.dart';
 import 'package:scootr/widgets/Drawer.dart';
 
@@ -19,7 +20,7 @@ class SettingsRoute extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            Text("Avanzate"),
+            AdvancedSettings(),
           ],
         ),
         drawer: ScootrDrawer(),

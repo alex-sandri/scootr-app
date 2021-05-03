@@ -17,6 +17,7 @@ class ThemeConfig {
           borderRadius: BorderRadius.circular(4),
         ),
       ),
+      dividerColor: Config.SECONDARY_COLOR,
       tabBarTheme: TabBarTheme(
         indicator: UnderlineTabIndicator(),
       ),
