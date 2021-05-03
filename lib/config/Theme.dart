@@ -12,6 +12,11 @@ class ThemeConfig {
         color: Config.PRIMARY_COLOR,
         elevation: 0,
       ),
+      cardTheme: Theme.of(context).cardTheme.copyWith(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(4),
+        ),
+      ),
       tabBarTheme: TabBarTheme(
         indicator: UnderlineTabIndicator(),
       ),

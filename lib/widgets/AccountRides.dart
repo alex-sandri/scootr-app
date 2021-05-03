@@ -27,11 +27,21 @@ class AccountRides extends StatelessWidget {
           itemBuilder: (context, index) {
             final Ride ride = rides[index];
 
-            return ListTile(
-              title: Text(ride.id),
-              onTap: () {
-                // TODO
-              },
+            return Card(
+              child: InkWell(
+                customBorder: Theme.of(context).cardTheme.shape,
+                child: Column(
+                  children: [
+                    ListTile(
+                      title: Text("Iniziata"),
+                      subtitle: Text(ride.startTime.toIso8601String()),
+                    ),
+                  ],
+                ),
+                onTap: () {
+                  // TODO
+                },
+              ),
             );
           },
         );
