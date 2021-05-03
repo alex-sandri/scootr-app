@@ -35,6 +35,9 @@ class AccountWallets extends StatelessWidget {
             final Wallet wallet = wallets[index];
 
             return ListTile(
+              leading: wallet.isDefault ?? false
+                ? Icon(Icons.favorite)
+                : null,
               title: Text(wallet.name),
               trailing: PopupMenuButton(
                 itemBuilder: (context) {
