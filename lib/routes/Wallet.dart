@@ -17,7 +17,7 @@ class WalletRoute extends StatelessWidget {
           title: _wallet.name,
           tabs: [
             Tab(
-              icon: Icon(Icons.info),
+              icon: Icon(Icons.info_outline),
               text: "Dettagli",
             ),
             Tab(
