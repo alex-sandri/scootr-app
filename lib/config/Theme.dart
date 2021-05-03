@@ -45,11 +45,11 @@ class ThemeConfig {
         style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all(Config.PRIMARY_COLOR),
           backgroundColor: MaterialStateProperty.all(Config.SECONDARY_COLOR),
-          padding: MaterialStateProperty.all(EdgeInsets.all(10)),
+          padding: MaterialStateProperty.all(EdgeInsets.all(15)),
           textStyle: MaterialStateProperty.all(
             TextStyle(
               fontFamily: "WorkSans",
-              fontSize: 18,
+              fontSize: 20,
             ),
           ),
           shape: MaterialStateProperty.all(
