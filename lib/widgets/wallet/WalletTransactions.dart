@@ -24,6 +24,7 @@ class WalletTransactions extends StatelessWidget {
         final List<Transaction> transactions = snapshot.data!.data!;
 
         return ListView.builder(
+          itemCount: transactions.length,
           itemBuilder: (context, index) {
             final Transaction transaction = transactions[index];
 
