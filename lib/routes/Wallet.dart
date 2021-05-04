@@ -19,6 +19,21 @@ class WalletRoute extends StatelessWidget {
       child: Scaffold(
         appBar: ScootrAppBar(
           title: _wallet.name,
+          actions: [
+            IconButton(
+              icon: Icon(
+                _wallet.isDefault ?? false
+                  ? Icons.favorite
+                  : Icons.favorite_border,
+              ),
+              tooltip: _wallet.isDefault ?? false
+                ? "Rimuovi predefinito"
+                : "Imposta come predefinito",
+              onPressed: () {
+                // TODO
+              },
+            ),
+          ],
           tabs: [
             Tab(
               icon: Icon(Icons.info_outline),
