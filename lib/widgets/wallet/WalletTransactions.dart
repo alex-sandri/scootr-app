@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:scootr/config/Config.dart';
 import 'package:scootr/models/Transaction.dart';
 import 'package:scootr/models/Wallet.dart';
 import 'package:scootr/services/Api.dart';
@@ -58,6 +59,11 @@ class WalletTransactions extends StatelessWidget {
                           locale: Localizations.localeOf(context).toString(),
                         )
                         .format(transaction.amount),
+                      style: TextStyle(
+                        color: transaction.amount < 0
+                          ? Config.DANGER_COLOR
+                          : null,
+                      ),
                     ),
                   ),
                   ListTile(
