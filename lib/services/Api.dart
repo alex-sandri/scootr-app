@@ -124,8 +124,7 @@ class ApiService {
       path: "/users/${user.id}/rides",
       deserialize: (_) {
         return (_ as List<dynamic>)
-          .map((_) => Map<String, dynamic>.from(_))
-          .map(Ride.deserialize)
+          .map((_) => Ride.deserialize(Map<String, dynamic>.from(_)))
           .toList();
       },
     );
@@ -160,8 +159,7 @@ class ApiService {
       path: "/users/${user.id}/wallets",
       deserialize: (_) {
         return (_ as List<dynamic>)
-          .map((_) => Map<String, dynamic>.from(_))
-          .map(Wallet.deserialize)
+          .map((_) => Wallet.deserialize(Map<String, dynamic>.from(_)))
           .toList();
       },
     );
