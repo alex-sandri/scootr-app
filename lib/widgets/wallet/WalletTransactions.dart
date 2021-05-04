@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:scootr/models/Transaction.dart';
 import 'package:scootr/models/Wallet.dart';
+import 'package:scootr/services/Api.dart';
 
 class WalletTransactions extends StatelessWidget {
   final Wallet _wallet;
@@ -8,6 +10,9 @@ class WalletTransactions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return FutureBuilder<List<Transaction>>(
+      future: ApiService.listTransactionsForWallet(_wallet),
+      builder: ,
+    );
   }
 }
