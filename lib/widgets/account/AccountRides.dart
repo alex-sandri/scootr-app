@@ -83,9 +83,8 @@ class AccountRides extends StatelessWidget {
                           title: Text("Costo"),
                           subtitle: Text(
                             NumberFormat
-                              .currency(
+                              .simpleCurrency(
                                 locale: Localizations.localeOf(context).toString(),
-                                symbol: "€",
                               )
                               .format(ride.amount),
                           ),
