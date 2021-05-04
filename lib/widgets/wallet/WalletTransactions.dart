@@ -40,6 +40,20 @@ class WalletTransactions extends StatelessWidget {
                         .format(transaction.timestamp),
                     ),
                   ),
+                  ListTile(
+                    leading: Icon(Icons.euro),
+                    title: Text(
+                      NumberFormat
+                        .simpleCurrency(
+                          locale: Localizations.localeOf(context).toString(),
+                        )
+                        .format(transaction.amount),
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.help_outline),
+                    title: Text(transaction.reason),
+                  ),
                 ],
               ),
             );
