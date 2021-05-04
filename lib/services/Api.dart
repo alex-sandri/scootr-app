@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/models/Ride.dart';
 import 'package:scootr/models/Session.dart';
+import 'package:scootr/models/Transaction.dart';
 import 'package:scootr/models/User.dart';
 import 'package:scootr/models/Wallet.dart';
 
@@ -146,6 +147,22 @@ class ApiService {
     return ApiService.send<Session>(
       method: ApiMethod.DELETE,
       path: "/sessions/$id",
+    );
+  }
+
+  /* ---------------
+  -- TRANSACTIONS --
+  --------------- */
+
+  static Future<ApiResponse<List<Transaction>>> listTransactionsForWallet(Wallet wallet) async {
+    return ApiService.send<List<Transaction>>(
+      method: ApiMethod.GET,
+      path: "/wallets/${wallet.id}/transactions",
+      deserialize: (_) {
+        return (_ as List<dynamic>)
+          .map((_) => Transaction.deserialize(Map<String, dynamic>.from(_)))
+          .toList();
+      },
     );
   }
 
