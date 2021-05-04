@@ -18,6 +18,35 @@ class ThemeConfig {
         ),
       ),
       dividerColor: Config.SECONDARY_COLOR,
+      inputDecorationTheme: InputDecorationTheme(
+        labelStyle: TextStyle(
+          color: Config.SECONDARY_COLOR,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide(
+            color: Config.SECONDARY_COLOR,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide(
+            color: Config.SECONDARY_COLOR,
+          ),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide(
+            color: Config.DANGER_COLOR,
+          ),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide(
+            color: Config.DANGER_COLOR,
+          ),
+        ),
+      ),
       tabBarTheme: TabBarTheme(
         indicator: UnderlineTabIndicator(),
       ),
