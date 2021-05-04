@@ -35,7 +35,7 @@ class WalletTransactions extends StatelessWidget {
                     leading: Icon(Icons.schedule),
                     title: Text(
                       DateFormat
-                        .yMMMMd()
+                        .yMMMMd(Localizations.localeOf(context).toString())
                         .add_jms()
                         .format(transaction.timestamp),
                     ),
