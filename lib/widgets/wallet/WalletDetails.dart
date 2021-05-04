@@ -8,6 +8,28 @@ class WalletDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ListView(
+      children: [
+        Form(
+          child: Column(
+            children: [
+              TextFormField(
+                initialValue: _wallet.name,
+                decoration: InputDecoration(
+                  labelText: "Nome",
+                ),
+              ),
+              SizedBox(height: 20),
+              TextButton(
+                child: Text("Aggiorna"),
+                onPressed: () {
+                  
+                },
+              ),
+            ],
+          ),
+        )
+      ],
+    );
   }
 }
