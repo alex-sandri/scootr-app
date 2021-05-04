@@ -28,6 +28,16 @@ class WalletTransactions extends StatelessWidget {
           itemBuilder: (context, index) {
             final Transaction transaction = transactions[index];
 
+            String _getDisplayReason(String reason) {
+              switch (reason)
+              {
+                case "top-up": return "Accredito";
+                case "ride": return "Corsa";
+                case "subscription": return "Ricarica periodica";
+                default: return reason;
+              }
+            }
+
             return Card(
               child: Column(
                 children: [
@@ -52,7 +62,7 @@ class WalletTransactions extends StatelessWidget {
                   ),
                   ListTile(
                     leading: Icon(Icons.help_outline),
-                    title: Text(transaction.reason),
+                    title: Text(_getDisplayReason(transaction.reason)),
                   ),
                 ],
               ),
