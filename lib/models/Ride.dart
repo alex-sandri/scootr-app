@@ -18,18 +18,16 @@ class Ride {
     this.amount,
   });
 
-  static Ride deserialize(Map<String, dynamic> json) {
-    return Ride(
-      id: json["id"],
-      vehicle: Vehicle.deserialize(json["vehicle"]),
-      wallet: Wallet.deserialize(json["wallet"]),
-      startTime: DateTime.parse(json["start_time"]),
-      endTime: json["end_time"] != null
-        ? DateTime.parse(json["end_time"])
-        : null,
-      amount: json["amount"] != null
-        ? json["amount"]
-        : null,
-    );
-  }
+  Ride.deserialize(Map<String, dynamic> json): this(
+    id: json["id"],
+    vehicle: Vehicle.deserialize(json["vehicle"]),
+    wallet: Wallet.deserialize(json["wallet"]),
+    startTime: DateTime.parse(json["start_time"]),
+    endTime: json["end_time"] != null
+      ? DateTime.parse(json["end_time"])
+      : null,
+    amount: json["amount"] != null
+      ? json["amount"]
+      : null,
+  );
 }

@@ -15,13 +15,11 @@ class Wallet {
     this.isDefault,
   });
 
-  static Wallet deserialize(Map<String, dynamic> json) {
-    return Wallet(
-      id: json["id"],
-      name: json["name"],
-      balance: json["balance"],
-      user: User.deserialize(json["user"]),
-      isDefault: json["__metadata"]?["is_default"],
-    );
-  }
+  Wallet.deserialize(Map<String, dynamic> json): this(
+    id: json["id"],
+    name: json["name"],
+    balance: json["balance"],
+    user: User.deserialize(json["user"]),
+    isDefault: json["__metadata"]?["is_default"],
+  );
 }

@@ -11,11 +11,9 @@ class Vehicle {
     required this.location,
   });
 
-  static Vehicle deserialize(Map<String, dynamic> json) {
-    return Vehicle(
-      id: json["id"],
-      batteryLevel: json["battery_level"],
-      location: Location.deserialize(json["location"]),
-    );
-  }
+  Vehicle.deserialize(Map<String, dynamic> json): this(
+    id: json["id"],
+    batteryLevel: json["battery_level"],
+    location: Location.deserialize(json["location"]),
+  );
 }

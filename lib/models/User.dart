@@ -15,14 +15,12 @@ class User {
     required this.fiscalNumber,
   });
 
-  static User deserialize(Map<String, dynamic> json) {
-    return User(
-      id: json["id"],
-      firstName: json["first_name"],
-      lastName: json["last_name"],
-      email: json["email"],
-      birthDate: DateTime.parse(json["birth_date"]),
-      fiscalNumber: json["fiscal_number"],
-    );
-  }
+  User.deserialize(Map<String, dynamic> json): this(
+    id: json["id"],
+    firstName: json["first_name"],
+    lastName: json["last_name"],
+    email: json["email"],
+    birthDate: DateTime.parse(json["birth_date"]),
+    fiscalNumber: json["fiscal_number"],
+  );
 }

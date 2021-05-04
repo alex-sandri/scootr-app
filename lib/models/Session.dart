@@ -11,11 +11,9 @@ class Session {
     required this.expiresAt,
   });
 
-  static Session deserialize(Map<String, dynamic> json) {
-    return Session(
-      id: json["id"],
-      user: User.deserialize(json["user"]),
-      expiresAt: DateTime.parse(json["expires_at"]),
-    );
-  }
+  Session.deserialize(Map<String, dynamic> json): this(
+    id: json["id"],
+    user: User.deserialize(json["user"]),
+    expiresAt: DateTime.parse(json["expires_at"]),
+  );
 }

@@ -7,10 +7,8 @@ class Location {
     required this.longitude,
   });
 
-  static Location deserialize(Map<String, dynamic> json) {
-    return Location(
-      latitude: json["latitude"],
-      longitude: json["longitude"],
-    );
-  }
+  Location.deserialize(Map<String, dynamic> json): this(
+    latitude: json["latitude"],
+    longitude: json["longitude"],
+  );
 }
