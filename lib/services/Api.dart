@@ -6,6 +6,7 @@ import 'package:scootr/config/Config.dart';
 import 'package:scootr/models/PaymentMethod.dart';
 import 'package:scootr/models/Ride.dart';
 import 'package:scootr/models/Session.dart';
+import 'package:scootr/models/Subscription.dart';
 import 'package:scootr/models/Transaction.dart';
 import 'package:scootr/models/User.dart';
 import 'package:scootr/models/Wallet.dart';
@@ -164,6 +165,22 @@ class ApiService {
     return ApiService.send<Session>(
       method: ApiMethod.DELETE,
       path: "/sessions/$id",
+    );
+  }
+
+  /* ----------------
+  -- SUBSCRIPTIONS --
+  ---------------- */
+
+  static Future<ApiResponse<List<Subscription>>> listSubscriptionsForWallet(Wallet wallet) async {
+    return ApiService.send<List<Subscription>>(
+      method: ApiMethod.GET,
+      path: "/wallets/${wallet.id}/subscriptions",
+      deserialize: (_) {
+        return (_ as List<dynamic>)
+          .map((_) => Subscription.deserialize(Map<String, dynamic>.from(_)))
+          .toList();
+      },
     );
   }
 
