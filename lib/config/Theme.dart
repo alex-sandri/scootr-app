@@ -89,8 +89,8 @@ class ThemeConfig {
         ),
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        foregroundColor: Config.SECONDARY_COLOR,
-        backgroundColor: Config.PRIMARY_COLOR,
+        foregroundColor: Config.PRIMARY_COLOR,
+        backgroundColor: Config.SECONDARY_COLOR,
       ),
     );
   }
