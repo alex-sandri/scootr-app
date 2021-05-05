@@ -41,6 +41,9 @@ class WalletSubscriptions extends StatelessWidget {
         onPressed: () {
           // TODO
         },
+        style: Theme.of(context).textButtonTheme.style!.copyWith(
+          shape: MaterialStateProperty.all(StadiumBorder()),
+        ),
       ),
     );
   }
