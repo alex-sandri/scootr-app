@@ -11,25 +11,34 @@ class WalletPaymentMethods extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<ApiResponse<List<PaymentMethod>>>(
-      future: ApiService.listPaymentMethodsForWallet(_wallet),
-      builder: (context, snapshot) {
-        if (!snapshot.hasData)
-        {
-          return Center(
-            child: CircularProgressIndicator(),
+    return Scaffold(
+      body: FutureBuilder<ApiResponse<List<PaymentMethod>>>(
+        future: ApiService.listPaymentMethodsForWallet(_wallet),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData)
+          {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          final List<PaymentMethod> paymentMethods = snapshot.data!.data!;
+
+          return ListView.builder(
+            itemCount: paymentMethods.length,
+            itemBuilder: (context, index) {
+              return PaymentMethodWidget(paymentMethods[index]);
+            },
           );
-        }
-
-        final List<PaymentMethod> paymentMethods = snapshot.data!.data!;
-
-        return ListView.builder(
-          itemCount: paymentMethods.length,
-          itemBuilder: (context, index) {
-            return PaymentMethodWidget(paymentMethods[index]);
-          },
-        );
-      },
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        tooltip: "Aggiungi",
+        onPressed: () {
+          // TODO
+        },
+      ),
     );
   }
 }
