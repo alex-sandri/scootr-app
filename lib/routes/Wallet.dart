@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scootr/models/Wallet.dart';
-import 'package:scootr/widgets/misc/AppBar.dart';
-import 'package:scootr/widgets/misc/Drawer.dart';
+import 'package:scootr/widgets/common/AppBar.dart';
+import 'package:scootr/widgets/common/Drawer.dart';
 import 'package:scootr/widgets/wallet/WalletDetails.dart';
 import 'package:scootr/widgets/wallet/WalletPaymentMethods.dart';
 import 'package:scootr/widgets/wallet/WalletSubscriptions.dart';

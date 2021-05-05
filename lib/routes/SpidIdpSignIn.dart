@@ -6,7 +6,7 @@ import 'package:scootr/config/Config.dart';
 import 'package:scootr/models/SpidIdentityProvider.dart';
 import 'package:scootr/routes/Map.dart';
 import 'package:scootr/services/Auth.dart';
-import 'package:scootr/widgets/misc/AppBar.dart';
+import 'package:scootr/widgets/common/AppBar.dart';
 
 class SpidIdpSignInRoute extends StatelessWidget {
   final SpidIdentityProvider idp;

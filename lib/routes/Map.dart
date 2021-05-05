@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong/latlong.dart';
 import 'package:scootr/config/Config.dart';
-import 'package:scootr/widgets/misc/AppBar.dart';
-import 'package:scootr/widgets/misc/Drawer.dart';
+import 'package:scootr/widgets/common/AppBar.dart';
+import 'package:scootr/widgets/common/Drawer.dart';
 
 class MapRoute extends StatelessWidget {
   final LatLng _currentLocation = LatLng(41.9027835, 12.4963655);

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:scootr/config/Config.dart';
+import 'package:scootr/models/PaymentMethod.dart';
 import 'package:scootr/models/Ride.dart';
 import 'package:scootr/models/Session.dart';
 import 'package:scootr/models/Transaction.dart';
@@ -115,9 +116,25 @@ class ApiService {
     return result;
   }
 
-  /* ----------
+  /* ------------------
+  -- PAYMENT METHODS --
+  ------------------ */
+
+  static Future<ApiResponse<List<PaymentMethod>>> listPaymentMethodsForWallet(Wallet wallet) async {
+    return ApiService.send<List<PaymentMethod>>(
+      method: ApiMethod.GET,
+      path: "/wallets/${wallet.id}/payment-methods",
+      deserialize: (_) {
+        return (_ as List<dynamic>)
+          .map((_) => PaymentMethod.deserialize(Map<String, dynamic>.from(_)))
+          .toList();
+      },
+    );
+  }
+
+  /* --------
   -- RIDES --
-  ---------- */
+  -------- */
 
   static Future<ApiResponse<List<Ride>>> listRidesForUser(User user) async {
     return ApiService.send<List<Ride>>(
