@@ -51,7 +51,7 @@ class ApiService {
           response = await http.post(
             Uri.parse("${Config.API_ENDPOINT}$path"),
             headers: headers,
-            body: body,
+            body: jsonEncode(body),
           );
 
           break;
@@ -61,7 +61,7 @@ class ApiService {
           response = await http.patch(
             Uri.parse("${Config.API_ENDPOINT}$path"),
             headers: headers,
-            body: body,
+            body: jsonEncode(body),
           );
 
           break;
@@ -71,7 +71,7 @@ class ApiService {
           response = await http.put(
             Uri.parse("${Config.API_ENDPOINT}$path"),
             headers: headers,
-            body: body,
+            body: jsonEncode(body),
           );
 
           break;
@@ -213,6 +213,17 @@ class ApiService {
           .map((_) => Wallet.deserialize(Map<String, dynamic>.from(_)))
           .toList();
       },
+    );
+  }
+
+  static Future<ApiResponse<Wallet>> updateWallet(Wallet wallet, {
+    String? name,
+  }) async {
+    return ApiService.send<Wallet>(
+      method: ApiMethod.PATCH,
+      path: "/wallets/${wallet.id}",
+      body: { name },
+      deserialize: (_) => Wallet.deserialize(Map<String, dynamic>.from(_)),
     );
   }
 }
