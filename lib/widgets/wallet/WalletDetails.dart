@@ -9,19 +9,23 @@ class WalletDetails extends StatefulWidget {
   WalletDetails(this._wallet);
 
   @override
-  _WalletDetailsState createState() => _WalletDetailsState();
+  _WalletDetailsState createState() => _WalletDetailsState(_wallet);
 }
 
 class _WalletDetailsState extends State<WalletDetails> {
+  Wallet _wallet;
+
   bool _isEditing = false;
 
   final TextEditingController _nameController = TextEditingController();
+
+  _WalletDetailsState(this._wallet);
 
   @override
   void initState() {
     super.initState();
 
-    _nameController.text = widget._wallet.name;
+    _nameController.text = _wallet.name;
   }
 
   @override
@@ -41,7 +45,7 @@ class _WalletDetailsState extends State<WalletDetails> {
                       .simpleCurrency(
                         locale: Localizations.localeOf(context).toString(),
                       )
-                      .format(widget._wallet.balance),
+                      .format(_wallet.balance),
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.w700,
@@ -93,9 +97,17 @@ class _WalletDetailsState extends State<WalletDetails> {
                         }
 
                         await ApiService.updateWallet(
-                          widget._wallet,
+                          _wallet,
                           name: _nameController.text,
                         );
+
+                        setState(() {
+                          _isEditing = false;
+
+                          _wallet = _wallet.copyWith(
+                            name: _nameController.text,
+                          );
+                        });
                       },
                     ),
                   ],
