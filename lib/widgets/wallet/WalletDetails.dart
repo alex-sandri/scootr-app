@@ -6,8 +6,10 @@ import 'package:scootr/services/Api.dart';
 class WalletDetails extends StatefulWidget {
   final Wallet _wallet;
 
+  final void Function(Wallet) onUpdate;
+
   WalletDetails(this._wallet, {
-    required void Function(Wallet) onUpdate
+    required this.onUpdate
   });
 
   @override
@@ -101,6 +103,12 @@ class _WalletDetailsState extends State<WalletDetails> {
                         await ApiService.updateWallet(
                           _wallet,
                           name: _nameController.text,
+                        );
+
+                        widget.onUpdate(
+                          _wallet.copyWith(
+                            name: _nameController.text,
+                          ),
                         );
 
                         setState(() {
