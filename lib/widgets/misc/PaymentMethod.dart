@@ -46,6 +46,9 @@ class PaymentMethodWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
+        leading: _paymentMethod.isDefault ?? false
+          ? Icon(Icons.favorite)
+          : null,
         title: _getTitle(),
         subtitle: _getSubtitle(),
         trailing: PopupMenuButton(
