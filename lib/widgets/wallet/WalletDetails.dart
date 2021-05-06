@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:scootr/models/Wallet.dart';
 
-class WalletDetails extends StatelessWidget {
+class WalletDetails extends StatefulWidget {
   final Wallet _wallet;
 
   WalletDetails(this._wallet);
+
+  @override
+  _WalletDetailsState createState() => _WalletDetailsState();
+}
+
+class _WalletDetailsState extends State<WalletDetails> {
+  bool _isEditing = false;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +31,7 @@ class WalletDetails extends StatelessWidget {
                       .simpleCurrency(
                         locale: Localizations.localeOf(context).toString(),
                       )
-                      .format(_wallet.balance),
+                      .format(widget._wallet.balance),
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.w700,
@@ -48,22 +55,37 @@ class WalletDetails extends StatelessWidget {
           child: Form(
             child: Column(
               children: [
-                TextFormField(
-                  initialValue: _wallet.name,
-                  decoration: InputDecoration(
-                    labelText: "Nome",
-                  ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        initialValue: widget._wallet.name,
+                        decoration: InputDecoration(
+                          labelText: "Nome",
+                          enabled: _isEditing,
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.edit),
+                      onPressed: () {
+                        // TODO
+                      },
+                    ),
+                  ],
                 ),
                 SizedBox(height: 10),
-                Container(
-                  width: double.infinity,
-                  child: TextButton(
-                    child: Text("Aggiorna"),
-                    onPressed: () {
-                      // TODO
-                    },
+
+                if (_isEditing)
+                  Container(
+                    width: double.infinity,
+                    child: TextButton(
+                      child: Text("Aggiorna"),
+                      onPressed: () {
+                        // TODO
+                      },
+                    ),
                   ),
-                ),
               ],
             ),
           ),

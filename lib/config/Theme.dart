@@ -28,6 +28,12 @@ class ThemeConfig {
             color: Config.SECONDARY_COLOR,
           ),
         ),
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide(
+            color: Config.SECONDARY_COLOR,
+          ),
+        ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
           borderSide: BorderSide(
