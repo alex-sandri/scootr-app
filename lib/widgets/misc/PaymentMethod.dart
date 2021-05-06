@@ -11,7 +11,13 @@ enum PaymentMethodButton
 class PaymentMethodWidget extends StatelessWidget {
   final PaymentMethod _paymentMethod;
 
-  PaymentMethodWidget(this._paymentMethod);
+  final void Function(PaymentMethod) onUpdate;
+  final void Function() onDelete;
+
+  PaymentMethodWidget(this._paymentMethod, {
+    required this.onUpdate,
+    required this.onDelete,
+  });
 
   Widget? _getTitle() {
     switch (_paymentMethod.type)
@@ -68,6 +74,23 @@ class PaymentMethodWidget extends StatelessWidget {
                 ),
               ),
             ];
+          },
+          onSelected: (type) {
+            switch (type)
+            {
+              case PaymentMethodButton.SET_DEFAULT:
+              {
+                // TODO
+
+                break;
+              }
+              case PaymentMethodButton.DELETE:
+              {
+                // TODO
+
+                break;
+              }
+            }
           },
         ),
       ),
