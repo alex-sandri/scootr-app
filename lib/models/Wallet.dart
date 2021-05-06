@@ -22,4 +22,16 @@ class Wallet {
     user: User.deserialize(json["user"]),
     isDefault: json["__metadata"]?["is_default"],
   );
+
+  Wallet copyWith({
+    String? name,
+  }) {
+    return Wallet(
+      id: this.id,
+      name: name ?? this.name,
+      balance: this.balance,
+      user: this.user,
+      isDefault: this.isDefault,
+    );
+  }
 }
