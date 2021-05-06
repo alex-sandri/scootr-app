@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:scootr/models/Wallet.dart';
+import 'package:scootr/services/Api.dart';
 
 class WalletDetails extends StatefulWidget {
   final Wallet _wallet;
@@ -13,6 +14,15 @@ class WalletDetails extends StatefulWidget {
 
 class _WalletDetailsState extends State<WalletDetails> {
   bool _isEditing = false;
+
+  final TextEditingController _nameController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    _nameController.text = widget._wallet.name;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +69,7 @@ class _WalletDetailsState extends State<WalletDetails> {
                   children: [
                     Expanded(
                       child: TextFormField(
-                        initialValue: widget._wallet.name,
+                        controller: _nameController,
                         decoration: InputDecoration(
                           labelText: "Nome",
                           enabled: _isEditing,
@@ -82,7 +92,10 @@ class _WalletDetailsState extends State<WalletDetails> {
                           return;
                         }
 
-                        // TODO
+                        await ApiService.updateWallet(
+                          widget._wallet,
+                          name: _nameController.text,
+                        );
                       },
                     ),
                   ],
