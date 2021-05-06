@@ -66,30 +66,27 @@ class _WalletDetailsState extends State<WalletDetails> {
                         ),
                       ),
                     ),
-
-                    if (!_isEditing)
-                      IconButton(
-                        icon: Icon(Icons.edit),
-                        onPressed: () {
+                    IconButton(
+                      icon: Icon(
+                        _isEditing
+                          ? Icons.check
+                          : Icons.edit,
+                      ),
+                      onPressed: () async {
+                        if (!_isEditing)
+                        {
                           setState(() {
                             _isEditing = true;
                           });
-                        },
-                      ),
-                  ],
-                ),
-                SizedBox(height: 10),
 
-                if (_isEditing)
-                  Container(
-                    width: double.infinity,
-                    child: TextButton(
-                      child: Text("Aggiorna"),
-                      onPressed: () {
+                          return;
+                        }
+
                         // TODO
                       },
                     ),
-                  ),
+                  ],
+                ),
               ],
             ),
           ),
