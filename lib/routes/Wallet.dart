@@ -7,10 +7,19 @@ import 'package:scootr/widgets/wallet/WalletPaymentMethods.dart';
 import 'package:scootr/widgets/wallet/WalletSubscriptions.dart';
 import 'package:scootr/widgets/wallet/WalletTransactions.dart';
 
-class WalletRoute extends StatelessWidget {
+class WalletRoute extends StatefulWidget {
   final Wallet _wallet;
 
   WalletRoute(this._wallet);
+
+  @override
+  _WalletRouteState createState() => _WalletRouteState(_wallet);
+}
+
+class _WalletRouteState extends State<WalletRoute> {
+  Wallet _wallet;
+
+  _WalletRouteState(this._wallet);
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +64,14 @@ class WalletRoute extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            WalletDetails(_wallet),
+            WalletDetails(
+              _wallet,
+              onUpdate: (newWallet) {
+                setState(() {
+                  _wallet = newWallet;
+                });
+              },
+            ),
             WalletPaymentMethods(_wallet),
             WalletSubscriptions(_wallet),
             WalletTransactions(_wallet),

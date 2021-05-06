@@ -6,7 +6,9 @@ import 'package:scootr/services/Api.dart';
 class WalletDetails extends StatefulWidget {
   final Wallet _wallet;
 
-  WalletDetails(this._wallet);
+  WalletDetails(this._wallet, {
+    required void Function(Wallet) onUpdate
+  });
 
   @override
   _WalletDetailsState createState() => _WalletDetailsState(_wallet);
