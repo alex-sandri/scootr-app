@@ -161,8 +161,8 @@ class ApiService {
     );
   }
 
-  static Future<ApiResponse<Session>> deleteSession(String id) async {
-    return ApiService.send<Session>(
+  static Future<ApiResponse<void>> deleteSession(String id) async {
+    return ApiService.send<void>(
       method: ApiMethod.DELETE,
       path: "/sessions/$id",
     );
