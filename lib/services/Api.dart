@@ -222,7 +222,9 @@ class ApiService {
     return ApiService.send<Wallet>(
       method: ApiMethod.PATCH,
       path: "/wallets/${wallet.id}",
-      body: { name },
+      body: {
+        "name": name,
+      },
       deserialize: (_) => Wallet.deserialize(Map<String, dynamic>.from(_)),
     );
   }
