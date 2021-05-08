@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/models/PaymentMethod.dart';
+import 'package:scootr/services/Api.dart';
 
 enum PaymentMethodButton
 {
@@ -75,18 +76,35 @@ class PaymentMethodWidget extends StatelessWidget {
               ),
             ];
           },
-          onSelected: (type) {
+          onSelected: (type) async {
             switch (type)
             {
               case PaymentMethodButton.SET_DEFAULT:
               {
-                // TODO
+                final response = await ApiService.setDefaultPaymentMethodForWallet(
+                  paymentMethod: _paymentMethod,
+                  wallet: _paymentMethod.wallet,
+                );
+
+                if (!response.success)
+                {
+                  return;
+                }
+
+                onUpdate(response.data!);
 
                 break;
               }
               case PaymentMethodButton.DELETE:
               {
-                // TODO
+                final response = await ApiService.deletePaymentMethod(_paymentMethod);
+
+                if (!response.success)
+                {
+                  return;
+                }
+
+                onDelete();
 
                 break;
               }
