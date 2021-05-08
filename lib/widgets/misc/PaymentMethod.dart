@@ -91,7 +91,9 @@ class PaymentMethodWidget extends StatelessWidget {
                   return;
                 }
 
-                onUpdate(response.data!);
+                onUpdate(_paymentMethod.wallet.copyWith(
+                  isDefault: true,
+                ));
 
                 break;
               }

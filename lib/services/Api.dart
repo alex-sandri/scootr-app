@@ -133,11 +133,11 @@ class ApiService {
     );
   }
 
-  static Future<ApiResponse<PaymentMethod>> setDefaultPaymentMethodForWallet({
+  static Future<ApiResponse<void>> setDefaultPaymentMethodForWallet({
     required PaymentMethod paymentMethod,
     required Wallet wallet,
   }) async {
-    return ApiService.send<PaymentMethod>(
+    return ApiService.send<void>(
       method: ApiMethod.PUT,
       path: "/wallets/${wallet.id}/payment-methods/default",
       body: {
