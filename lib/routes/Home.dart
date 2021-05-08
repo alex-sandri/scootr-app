@@ -18,10 +18,10 @@ class HomeRoute extends StatelessWidget {
           children: [
             Expanded(
               child: IntroSlider(
-                showPrevBtn: false,
-                showNextBtn: false,
                 showSkipBtn: false,
                 showDoneBtn: false,
+                renderPrevBtn: Container(),
+                renderNextBtn: Container(),
                 colorDot: Config.SECONDARY_COLOR.withAlpha(150),
                 colorActiveDot: Config.SECONDARY_COLOR,
                 slides: [
