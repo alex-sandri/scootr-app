@@ -22,4 +22,16 @@ class PaymentMethod {
     wallet: Wallet.deserialize(json["wallet"]),
     isDefault: json["__metadata"]?["is_default"],
   );
+
+  PaymentMethod copyWith({
+    bool? isDefault,
+  }) {
+    return PaymentMethod(
+      id: this.id,
+      type: this.type,
+      data: this.data,
+      wallet: this.wallet,
+      isDefault: isDefault ?? this.isDefault,
+    );
+  }
 }
