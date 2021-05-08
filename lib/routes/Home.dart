@@ -12,7 +12,6 @@ class HomeRoute extends StatelessWidget {
     return Scaffold(
       appBar: ScootrAppBar(),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
             child: IntroSlider(
