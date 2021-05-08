@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scootr/config/Config.dart';
 
 class ScootrRefreshableView<T> extends StatefulWidget {
   final Future<T> Function() future;
@@ -45,7 +46,8 @@ class _ScootrRefreshableViewState<T> extends State<ScootrRefreshableView> {
           Expanded(
             child: RefreshIndicator(
               onRefresh: _handleRefresh,
-              backgroundColor: Theme.of(context).appBarTheme.color,
+              color: Config.PRIMARY_COLOR,
+              backgroundColor: Config.SECONDARY_COLOR,
               child: _result != null
                 ? (widget as ScootrRefreshableView<T>).builder(_result!)
                 : CircularProgressIndicator(),
