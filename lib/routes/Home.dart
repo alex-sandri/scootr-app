@@ -11,76 +11,80 @@ class HomeRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: ScootrAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: IntroSlider(
-                showSkipBtn: false,
-                showDoneBtn: false,
-                renderPrevBtn: Container(),
-                renderNextBtn: Container(),
-                colorDot: Config.SECONDARY_COLOR.withAlpha(150),
-                colorActiveDot: Config.SECONDARY_COLOR,
-                slides: [
-                  Slide(
-                    title: "Evita l'auto.",
-                    description: "",
-                    backgroundColor: Colors.transparent,
-                  ),
-                  Slide(
-                    title: "Evita il traffico.",
-                    description: "",
-                    backgroundColor: Colors.transparent,
-                  ),
-                  Slide(
-                    title: "Aiuta il Paese.",
-                    description: "",
-                    backgroundColor: Colors.transparent,
-                  ),
-                ],
-              ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: IntroSlider(
+              showSkipBtn: false,
+              showDoneBtn: false,
+              renderPrevBtn: Container(),
+              renderNextBtn: Container(),
+              colorDot: Config.SECONDARY_COLOR.withAlpha(150),
+              colorActiveDot: Config.SECONDARY_COLOR,
+              slides: [
+                Slide(
+                  title: "Evita l'auto.",
+                  description: "",
+                  backgroundColor: Colors.transparent,
+                ),
+                Slide(
+                  title: "Evita il traffico.",
+                  description: "",
+                  backgroundColor: Colors.transparent,
+                ),
+                Slide(
+                  title: "Aiuta il Paese.",
+                  description: "",
+                  backgroundColor: Colors.transparent,
+                ),
+              ],
             ),
-            /*
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Evita l'auto.",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w700,
-                    ),
+          ),
+          /*
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Evita l'auto.",
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.w700,
                   ),
-                  Text(
-                    "Evita il traffico.",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w700,
-                    ),
+                ),
+                Text(
+                  "Evita il traffico.",
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.w700,
                   ),
-                  Text(
-                    "Aiuta il Paese.",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w700,
-                    ),
+                ),
+                Text(
+                  "Aiuta il Paese.",
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.w700,
                   ),
-                  Text(
-                    "Diventa parte della rivoluzione della micro-mobilità sostenibile.",
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
+                ),
+                Text(
+                  "Diventa parte della rivoluzione della micro-mobilità sostenibile.",
+                  style: TextStyle(
+                    fontSize: 20,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            */
-            Column(
+          ),
+          */
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 10,
+              right: 10,
+              bottom: 10,
+            ),
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 TextButton.icon(
@@ -118,8 +122,8 @@ class HomeRoute extends StatelessWidget {
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
