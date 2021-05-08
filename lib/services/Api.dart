@@ -133,6 +133,20 @@ class ApiService {
     );
   }
 
+  static Future<ApiResponse<PaymentMethod>> setDefaultPaymentMethodForWallet({
+    required PaymentMethod paymentMethod,
+    required Wallet wallet,
+  }) async {
+    return ApiService.send<PaymentMethod>(
+      method: ApiMethod.PUT,
+      path: "/wallets/${wallet.id}/payment-methods/default",
+      body: {
+        "id": paymentMethod.id,
+      },
+      deserialize: (_) => PaymentMethod.deserialize(Map<String, dynamic>.from(_)),
+    );
+  }
+
   /* --------
   -- RIDES --
   -------- */
