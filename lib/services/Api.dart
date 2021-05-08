@@ -147,6 +147,13 @@ class ApiService {
     );
   }
 
+  static Future<ApiResponse<void>> deletePaymentMethod(PaymentMethod paymentMethod) async {
+    return ApiService.send<void>(
+      method: ApiMethod.DELETE,
+      path: "/payment-methods/${paymentMethod.id}",
+    );
+  }
+
   /* --------
   -- RIDES --
   -------- */
