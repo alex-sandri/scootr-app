@@ -50,7 +50,9 @@ class _ScootrRefreshableViewState<T> extends State<ScootrRefreshableView> {
               backgroundColor: Config.SECONDARY_COLOR,
               child: _result != null
                 ? (widget as ScootrRefreshableView<T>).builder(_result!)
-                : CircularProgressIndicator(),
+                : Center(
+                  child: CircularProgressIndicator(),
+                ),
             ),
           ),
         ],
