@@ -23,18 +23,46 @@ class HomeRoute extends StatelessWidget {
               colorActiveDot: Config.SECONDARY_COLOR,
               slides: [
                 Slide(
-                  title: "Evita l'auto.",
-                  description: "",
+                  widgetTitle: Text(
+                    "Evita l'auto.",
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                  widgetDescription: Text(
+                    "Per piccoli spostamenti preferisci un mezzo"
+                    " "
+                    "sostenibile come la bicicletta o il monopattino",
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
+                  pathImage: "assets/images/intro/1.png",
+                  backgroundColor: Colors.transparent,
+                  
+                ),
+                Slide(
+                  widgetTitle: Text(
+                    "Evita il traffico.",
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                  widgetDescription: Text(
+                    "Per piccoli spostamenti preferisci un mezzo"
+                    " "
+                    "sostenibile come la bicicletta o il monopattino",
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
+                  pathImage: "assets/images/intro/2.png",
                   backgroundColor: Colors.transparent,
                 ),
                 Slide(
-                  title: "Evita il traffico.",
-                  description: "",
-                  backgroundColor: Colors.transparent,
-                ),
-                Slide(
-                  title: "Aiuta il Paese.",
-                  description: "",
+                  widgetTitle: Text(
+                    "Aiuta il Paese.",
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                  widgetDescription: Text(
+                    "Per piccoli spostamenti preferisci un mezzo"
+                    " "
+                    "sostenibile come la bicicletta o il monopattino",
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
+                  pathImage: "assets/images/intro/3.png",
                   backgroundColor: Colors.transparent,
                 ),
               ],
