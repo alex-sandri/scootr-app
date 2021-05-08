@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intro_slider/intro_slider.dart';
+import 'package:intro_slider/slide_object.dart';
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/routes/SpidIdpList.dart';
 import 'package:scootr/widgets/common/AppBar.dart';
@@ -14,6 +16,34 @@ class HomeRoute extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Expanded(
+              child: IntroSlider(
+                showPrevBtn: false,
+                showNextBtn: false,
+                showSkipBtn: false,
+                showDoneBtn: false,
+                colorDot: Config.SECONDARY_COLOR.withAlpha(150),
+                colorActiveDot: Config.SECONDARY_COLOR,
+                slides: [
+                  Slide(
+                    title: "Evita l'auto.",
+                    description: "",
+                    backgroundColor: Colors.transparent,
+                  ),
+                  Slide(
+                    title: "Evita il traffico.",
+                    description: "",
+                    backgroundColor: Colors.transparent,
+                  ),
+                  Slide(
+                    title: "Aiuta il Paese.",
+                    description: "",
+                    backgroundColor: Colors.transparent,
+                  ),
+                ],
+              ),
+            ),
+            /*
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -49,6 +79,7 @@ class HomeRoute extends StatelessWidget {
                 ],
               ),
             ),
+            */
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [

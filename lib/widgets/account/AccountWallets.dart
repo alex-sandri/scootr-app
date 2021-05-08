@@ -16,6 +16,7 @@ enum WalletButton
 class AccountWallets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // TODO: Fix error on sign out session is null
     final User user = Provider.of<AuthService>(context, listen: false).session!.user;
 
     return FutureBuilder<ApiResponse<List<Wallet>>>(
