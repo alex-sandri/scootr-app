@@ -4,16 +4,21 @@ import 'package:scootr/models/Wallet.dart';
 import 'package:scootr/services/Api.dart';
 import 'package:scootr/widgets/misc/PaymentMethod.dart';
 
-class WalletPaymentMethods extends StatelessWidget {
+class WalletPaymentMethods extends StatefulWidget {
   final Wallet _wallet;
 
   WalletPaymentMethods(this._wallet);
 
   @override
+  _WalletPaymentMethodsState createState() => _WalletPaymentMethodsState();
+}
+
+class _WalletPaymentMethodsState extends State<WalletPaymentMethods> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder<ApiResponse<List<PaymentMethod>>>(
-        future: ApiService.listPaymentMethodsForWallet(_wallet),
+        future: ApiService.listPaymentMethodsForWallet(widget._wallet),
         builder: (context, snapshot) {
           if (!snapshot.hasData)
           {
@@ -27,7 +32,15 @@ class WalletPaymentMethods extends StatelessWidget {
           return ListView.builder(
             itemCount: paymentMethods.length,
             itemBuilder: (context, index) {
-              return PaymentMethodWidget(paymentMethods[index]);
+              return PaymentMethodWidget(
+                paymentMethods[index],
+                onUpdate: (_) {
+                  setState(() {});
+                },
+                onDelete: () {
+                  setState(() {});
+                },
+              );
             },
           );
         },
