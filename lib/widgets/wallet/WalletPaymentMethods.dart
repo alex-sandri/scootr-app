@@ -26,15 +26,7 @@ class _WalletPaymentMethodsState extends State<WalletPaymentMethods> {
           return ListView.builder(
             itemCount: paymentMethods.length,
             itemBuilder: (context, index) {
-              return PaymentMethodWidget(
-                paymentMethods[index],
-                onUpdate: (_) {
-                  setState(() {});
-                },
-                onDelete: () {
-                  setState(() {});
-                },
-              );
+              return PaymentMethodWidget(paymentMethods[index]);
             },
           );
         },

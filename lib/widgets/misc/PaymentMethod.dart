@@ -12,13 +12,7 @@ enum PaymentMethodButton
 class PaymentMethodWidget extends StatelessWidget {
   final PaymentMethod _paymentMethod;
 
-  final void Function(PaymentMethod) onUpdate;
-  final void Function() onDelete;
-
-  PaymentMethodWidget(this._paymentMethod, {
-    required this.onUpdate,
-    required this.onDelete,
-  });
+  const PaymentMethodWidget(this._paymentMethod);
 
   Widget? _getTitle() {
     switch (_paymentMethod.type)
@@ -91,9 +85,13 @@ class PaymentMethodWidget extends StatelessWidget {
                   return;
                 }
 
-                onUpdate(_paymentMethod.copyWith(
-                  isDefault: true,
-                ));
+                ScaffoldMessenger
+                  .of(context)
+                  .showSnackBar(
+                    SnackBar(
+                      content: Text("Modifica avvenuta con successo"),
+                    ),
+                  );
 
                 break;
               }
@@ -106,7 +104,13 @@ class PaymentMethodWidget extends StatelessWidget {
                   return;
                 }
 
-                onDelete();
+                ScaffoldMessenger
+                  .of(context)
+                  .showSnackBar(
+                    SnackBar(
+                      content: Text("Il metodo di pagamento è stato eliminato correttamente"),
+                    ),
+                  );
 
                 break;
               }
