@@ -14,7 +14,9 @@ class _CiePinRouteState extends State<CiePinRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ScootrAppBar(),
+      appBar: ScootrAppBar(
+        title: "Accedi con CIE",
+      ),
       body: ListView(
         padding: const EdgeInsets.all(10),
         children: [
