@@ -71,6 +71,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  dots_indicator:
+    dependency: transitive
+    description:
+      name: dots_indicator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   fake_async:
     dependency: transitive
     description:
@@ -170,13 +177,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.17.0"
-  intro_slider:
+  introduction_screen:
     dependency: "direct main"
     description:
-      name: intro_slider
+      name: introduction_screen
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.4.2"
+    version: "2.1.0"
   latlong:
     dependency: transitive
     description:

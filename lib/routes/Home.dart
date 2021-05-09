@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:intro_slider/intro_slider.dart';
-import 'package:intro_slider/slide_object.dart';
+import 'package:introduction_screen/introduction_screen.dart';
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/routes/SpidIdpList.dart';
 import 'package:scootr/widgets/common/AppBar.dart';
@@ -14,56 +13,69 @@ class HomeRoute extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: IntroSlider(
-              showSkipBtn: false,
-              showDoneBtn: false,
-              renderPrevBtn: Container(),
-              renderNextBtn: Container(),
-              colorDot: Config.SECONDARY_COLOR.withAlpha(150),
-              colorActiveDot: Config.SECONDARY_COLOR,
-              slides: [
-                Slide(
-                  widgetTitle: Text(
+            child: IntroductionScreen(
+              showSkipButton: false,
+              showDoneButton: false,
+              showNextButton: false,
+              dotsDecorator: DotsDecorator(
+                color: Config.SECONDARY_COLOR.withAlpha(150),
+                activeColor: Config.SECONDARY_COLOR,
+              ),
+              pages: [
+                PageViewModel(
+                  titleWidget: Text(
                     "Evita l'auto.",
                     style: Theme.of(context).textTheme.headline6,
+                    textAlign: TextAlign.start,
                   ),
-                  widgetDescription: Text(
+                  bodyWidget: Text(
                     "Per piccoli spostamenti preferisci un mezzo"
                     " "
                     "sostenibile come la bicicletta o il monopattino",
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
-                  pathImage: "assets/images/intro/1.png",
-                  backgroundColor: Colors.transparent,
-                  
+                  image: Image.asset("assets/images/intro/1.png"),
+                  decoration: PageDecoration(
+                    imagePadding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                    ),
+                  ),
                 ),
-                Slide(
-                  widgetTitle: Text(
+                PageViewModel(
+                  titleWidget: Text(
                     "Evita il traffico.",
                     style: Theme.of(context).textTheme.headline6,
                   ),
-                  widgetDescription: Text(
+                  bodyWidget: Text(
                     "Per piccoli spostamenti preferisci un mezzo"
                     " "
                     "sostenibile come la bicicletta o il monopattino",
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
-                  pathImage: "assets/images/intro/2.png",
-                  backgroundColor: Colors.transparent,
+                  image: Image.asset("assets/images/intro/2.png"),
+                  decoration: PageDecoration(
+                    imagePadding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                    ),
+                  ),
                 ),
-                Slide(
-                  widgetTitle: Text(
+                PageViewModel(
+                  titleWidget: Text(
                     "Aiuta il Paese.",
                     style: Theme.of(context).textTheme.headline6,
                   ),
-                  widgetDescription: Text(
+                  bodyWidget: Text(
                     "Per piccoli spostamenti preferisci un mezzo"
                     " "
                     "sostenibile come la bicicletta o il monopattino",
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
-                  pathImage: "assets/images/intro/3.png",
-                  backgroundColor: Colors.transparent,
+                  image: Image.asset("assets/images/intro/3.png"),
+                  decoration: PageDecoration(
+                    imagePadding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                    ),
+                  ),
                 ),
               ],
             ),
