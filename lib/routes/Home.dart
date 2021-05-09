@@ -32,11 +32,17 @@ class HomeRoute extends StatelessWidget {
                       ),
                     ],
                   ),
-                  bodyWidget: Text(
-                    "Per piccoli spostamenti preferisci un mezzo"
-                    " "
-                    "sostenibile come la bicicletta o il monopattino",
-                    style: Theme.of(context).textTheme.subtitle1,
+                  bodyWidget: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          "Per piccoli spostamenti preferisci un mezzo"
+                          " "
+                          "sostenibile come la bicicletta o il monopattino",
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                      ),
+                    ],
                   ),
                   image: Image.asset("assets/images/intro/1.png"),
                   decoration: PageDecoration(
@@ -54,11 +60,17 @@ class HomeRoute extends StatelessWidget {
                       ),
                     ],
                   ),
-                  bodyWidget: Text(
-                    "Per piccoli spostamenti preferisci un mezzo"
-                    " "
-                    "sostenibile come la bicicletta o il monopattino",
-                    style: Theme.of(context).textTheme.subtitle1,
+                  bodyWidget: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          "Per piccoli spostamenti preferisci un mezzo"
+                          " "
+                          "sostenibile come la bicicletta o il monopattino",
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                      ),
+                    ],
                   ),
                   image: Image.asset("assets/images/intro/2.png"),
                   decoration: PageDecoration(
@@ -76,11 +88,17 @@ class HomeRoute extends StatelessWidget {
                       ),
                     ],
                   ),
-                  bodyWidget: Text(
-                    "Per piccoli spostamenti preferisci un mezzo"
-                    " "
-                    "sostenibile come la bicicletta o il monopattino",
-                    style: Theme.of(context).textTheme.subtitle1,
+                  bodyWidget: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          "Per piccoli spostamenti preferisci un mezzo"
+                          " "
+                          "sostenibile come la bicicletta o il monopattino",
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                      ),
+                    ],
                   ),
                   image: Image.asset("assets/images/intro/3.png"),
                   decoration: PageDecoration(
