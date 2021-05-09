@@ -116,43 +116,6 @@ class HomeRoute extends StatelessWidget {
               ],
             ),
           ),
-          /*
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Evita l'auto.",
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                Text(
-                  "Evita il traffico.",
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                Text(
-                  "Aiuta il Paese.",
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                Text(
-                  "Diventa parte della rivoluzione della micro-mobilità sostenibile.",
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          */
           Padding(
             padding: const EdgeInsets.only(
               left: 10,
