@@ -9,7 +9,9 @@ class SpidIdpListRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ScootrAppBar(),
+      appBar: ScootrAppBar(
+        title: "Entra con SPID",
+      ),
       body: ListView(
         padding: const EdgeInsets.all(10),
         children: [
