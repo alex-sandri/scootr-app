@@ -26,7 +26,7 @@ class HomeRoute extends StatelessWidget {
                   titleWidget: Row(
                     children: [
                       Text(
-                        "Evita l'auto.",
+                        "Evita l'auto",
                         style: Theme.of(context).textTheme.headline6,
                         textAlign: TextAlign.start,
                       ),
@@ -55,7 +55,7 @@ class HomeRoute extends StatelessWidget {
                   titleWidget: Row(
                     children: [
                       Text(
-                        "Evita il traffico.",
+                        "Evita il traffico",
                         style: Theme.of(context).textTheme.headline6,
                       ),
                     ],
@@ -64,9 +64,11 @@ class HomeRoute extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Text(
-                          "Per piccoli spostamenti preferisci un mezzo"
+                          "Utilizzando un mezzo di spostamento alternativo"
                           " "
-                          "sostenibile come la bicicletta o il monopattino",
+                          "puoi evitare il traffico per esempio utilizzando"
+                          " "
+                          "le piste ciclabili",
                           style: Theme.of(context).textTheme.subtitle1,
                         ),
                       ),
@@ -83,7 +85,7 @@ class HomeRoute extends StatelessWidget {
                   titleWidget: Row(
                     children: [
                       Text(
-                        "Aiuta il Paese.",
+                        "Aiuta il Paese",
                         style: Theme.of(context).textTheme.headline6,
                       ),
                     ],
@@ -92,9 +94,13 @@ class HomeRoute extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Text(
-                          "Per piccoli spostamenti preferisci un mezzo"
+                          "Puoi inoltre contribuire alla riduzione"
                           " "
-                          "sostenibile come la bicicletta o il monopattino",
+                          "del livello di inquinamento atmosferico"
+                          " "
+                          "e aiutare così a portare il Paese verso"
+                          " "
+                          "un futuro più sostenibile",
                           style: Theme.of(context).textTheme.subtitle1,
                         ),
                       ),
