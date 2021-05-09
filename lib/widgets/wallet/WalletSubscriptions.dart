@@ -23,6 +23,13 @@ class WalletSubscriptions extends StatelessWidget {
 
           final List<Subscription> subscriptions = snapshot.data!.data!;
 
+          if (subscriptions.isEmpty)
+          {
+            return Center(
+              child: Text("Non hai ancora impostato nessuna ricarica periodica"),
+            );
+          }
+
           return ListView.builder(
             itemCount: subscriptions.length,
             itemBuilder: (context, index) {
