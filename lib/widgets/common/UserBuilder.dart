@@ -18,14 +18,17 @@ class ScootrUserBuilder extends StatelessWidget {
 
     if (session == null)
     {
-      Navigator
-        .of(context)
-        .pushAndRemoveUntil(
-          MaterialPageRoute(
-            builder: (_) => HomeRoute(),
-          ),
-          (route) => false
-      );
+      Future.microtask(() {
+        Navigator
+          .of(context)
+          .pushAndRemoveUntil(
+            PageRouteBuilder(
+              pageBuilder: (_, __, ___) => HomeRoute(),
+              transitionDuration: Duration(seconds: 0),
+            ),
+            (route) => false
+        );
+      });
 
       return Container();
     }
