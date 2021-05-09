@@ -132,8 +132,8 @@ class HomeRoute extends StatelessWidget {
                   ),
                   label: Text("Entra con SPID"),
                   style: Theme.of(context).textButtonTheme.style!.copyWith(
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
-                    backgroundColor: MaterialStateProperty.all(Config.SPID_COLOR),
+                    foregroundColor: MaterialStateProperty.all(Config.SPID_COLOR),
+                    backgroundColor: MaterialStateProperty.all(Colors.white),
                   ),
                   onPressed: () {
                     Navigator.of(context).push(
@@ -151,8 +151,8 @@ class HomeRoute extends StatelessWidget {
                   ),
                   label: Text("Entra con CIE"),
                   style: Theme.of(context).textButtonTheme.style!.copyWith(
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
-                    backgroundColor: MaterialStateProperty.all(Config.SPID_COLOR),
+                    foregroundColor: MaterialStateProperty.all(Config.SPID_COLOR),
+                    backgroundColor: MaterialStateProperty.all(Colors.white),
                   ),
                   onPressed: () {
                     // TODO
