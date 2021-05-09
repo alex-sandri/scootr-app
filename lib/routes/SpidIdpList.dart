@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/routes/SpidIdpSignIn.dart';
 import 'package:scootr/widgets/common/AppBar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SpidIdpListRoute extends StatelessWidget {
   @override
@@ -40,6 +41,30 @@ class SpidIdpListRoute extends StatelessWidget {
                   ),
                 ),
             ],
+          ),
+          SizedBox(height: 30),
+          TextButton(
+            child: Text("Maggiori info"),
+            onPressed: () async {
+              const url = "https://www.spid.gov.it/";
+
+              if (await canLaunch(url))
+              {
+                launch(url);
+              }
+            },
+          ),
+          SizedBox(height: 10),
+          TextButton(
+            child: Text("Non hai SPID?"),
+            onPressed: () async {
+              const url = "https://www.spid.gov.it/richiedi-spid";
+
+              if (await canLaunch(url))
+              {
+                launch(url);
+              }
+            },
           ),
         ],
       ),
