@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:scootr/config/Config.dart';
+import 'package:scootr/routes/CiePin.dart';
 import 'package:scootr/routes/SpidIdpList.dart';
 import 'package:scootr/widgets/common/AppBar.dart';
 
@@ -155,7 +156,11 @@ class HomeRoute extends StatelessWidget {
                     backgroundColor: MaterialStateProperty.all(Colors.white),
                   ),
                   onPressed: () {
-                    // TODO
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => CiePinRoute(),
+                      ),
+                    );
                   },
                 ),
               ],
