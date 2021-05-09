@@ -47,7 +47,7 @@ class HomeRoute extends StatelessWidget {
                   image: Image.asset("assets/images/intro/1.png"),
                   decoration: PageDecoration(
                     imagePadding: const EdgeInsets.symmetric(
-                      horizontal: 10,
+                      horizontal: 16,
                     ),
                   ),
                 ),
@@ -77,7 +77,7 @@ class HomeRoute extends StatelessWidget {
                   image: Image.asset("assets/images/intro/2.png"),
                   decoration: PageDecoration(
                     imagePadding: const EdgeInsets.symmetric(
-                      horizontal: 10,
+                      horizontal: 16,
                     ),
                   ),
                 ),
@@ -109,7 +109,7 @@ class HomeRoute extends StatelessWidget {
                   image: Image.asset("assets/images/intro/3.png"),
                   decoration: PageDecoration(
                     imagePadding: const EdgeInsets.symmetric(
-                      horizontal: 10,
+                      horizontal: 16,
                     ),
                   ),
                 ),
