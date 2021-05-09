@@ -3,7 +3,14 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:scootr/config/Config.dart';
 import 'package:scootr/widgets/common/AppBar.dart';
 
-class CiePinRoute extends StatelessWidget {
+class CiePinRoute extends StatefulWidget {
+  @override
+  _CiePinRouteState createState() => _CiePinRouteState();
+}
+
+class _CiePinRouteState extends State<CiePinRoute> {
+  bool _enableContinueButton = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +43,19 @@ class CiePinRoute extends StatelessWidget {
             },
           ),
         ],
+      ),
+      bottomNavigationBar: TextButton(
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.zero,
+            ),
+          ),
+        ),
+        child: Text("Prosegui"),
+        onPressed: _enableContinueButton ? () {
+          // TODO
+        } : null,
       ),
     );
   }
