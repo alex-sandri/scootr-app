@@ -23,10 +23,14 @@ class HomeRoute extends StatelessWidget {
               ),
               pages: [
                 PageViewModel(
-                  titleWidget: Text(
-                    "Evita l'auto.",
-                    style: Theme.of(context).textTheme.headline6,
-                    textAlign: TextAlign.start,
+                  titleWidget: Row(
+                    children: [
+                      Text(
+                        "Evita l'auto.",
+                        style: Theme.of(context).textTheme.headline6,
+                        textAlign: TextAlign.start,
+                      ),
+                    ],
                   ),
                   bodyWidget: Text(
                     "Per piccoli spostamenti preferisci un mezzo"
@@ -42,9 +46,13 @@ class HomeRoute extends StatelessWidget {
                   ),
                 ),
                 PageViewModel(
-                  titleWidget: Text(
-                    "Evita il traffico.",
-                    style: Theme.of(context).textTheme.headline6,
+                  titleWidget: Row(
+                    children: [
+                      Text(
+                        "Evita il traffico.",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                    ],
                   ),
                   bodyWidget: Text(
                     "Per piccoli spostamenti preferisci un mezzo"
@@ -60,9 +68,13 @@ class HomeRoute extends StatelessWidget {
                   ),
                 ),
                 PageViewModel(
-                  titleWidget: Text(
-                    "Aiuta il Paese.",
-                    style: Theme.of(context).textTheme.headline6,
+                  titleWidget: Row(
+                    children: [
+                      Text(
+                        "Aiuta il Paese.",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                    ],
                   ),
                   bodyWidget: Text(
                     "Per piccoli spostamenti preferisci un mezzo"
