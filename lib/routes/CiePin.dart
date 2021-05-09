@@ -38,8 +38,9 @@ class _CiePinRouteState extends State<CiePinRoute> {
               selectedColor: Config.SECONDARY_COLOR,
             ),
             onChanged: (value) {
-              // TODO
-              print(value);
+              setState(() {
+                _enableContinueButton = value.length == 8;
+              });
             },
           ),
         ],
