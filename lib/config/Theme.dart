@@ -79,7 +79,14 @@ class ThemeConfig {
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all(Config.PRIMARY_COLOR),
-          backgroundColor: MaterialStateProperty.all(Config.SECONDARY_COLOR),
+          backgroundColor: MaterialStateProperty.resolveWith((states) {
+            if (states.contains(MaterialState.disabled))
+            {
+              return Config.SECONDARY_COLOR.withAlpha(150);
+            }
+
+            return Config.SECONDARY_COLOR;
+          }),
           padding: MaterialStateProperty.all(EdgeInsets.all(15)),
           textStyle: MaterialStateProperty.all(
             TextStyle(
