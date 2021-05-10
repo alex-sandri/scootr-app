@@ -19,6 +19,33 @@ class CieCardReaderRoute extends StatelessWidget {
             );
           }
 
+          if (!snapshot.data!)
+          {
+            return ListView(
+              padding: const EdgeInsets.all(10),
+              children: [
+                Text(
+                  "NFC non disponibile",
+                  style: Theme.of(context).textTheme.headline6,
+                ),
+                SizedBox(height: 5),
+                Text(
+                  "Per utilizzare questa funzionalità è necessario"
+                  " poter accedere al lettore NFC del dispositivo."
+                  "\n"
+                  "Verifica che il tuo dispositivo disponga del lettore"
+                  " e che sia abilitato.",
+                ),
+              ],
+            );
+          }
+
+          NfcManager.instance.startSession(
+            onDiscovered: (tag) async {
+              print((await (Ndef.from(tag)?.read()))?.records.join("\n"));
+            },
+          );
+
           return Container();
         },
       ),
