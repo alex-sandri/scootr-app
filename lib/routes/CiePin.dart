@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:scootr/config/Config.dart';
+import 'package:scootr/routes/CieCardReader.dart';
 import 'package:scootr/widgets/common/AppBar.dart';
 
 class CiePinRoute extends StatefulWidget {
@@ -57,7 +58,13 @@ class _CiePinRouteState extends State<CiePinRoute> {
         ),
         child: Text("Prosegui"),
         onPressed: _enableContinueButton ? () {
-          // TODO
+          Navigator
+            .of(context)
+            .push(
+              MaterialPageRoute(
+                builder: (_) => CieCardReaderRoute(),
+              ),
+            );
         } : null,
       ),
     );
