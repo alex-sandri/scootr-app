@@ -42,7 +42,7 @@ class CieCardReaderRoute extends StatelessWidget {
 
           NfcManager.instance.startSession(
             onDiscovered: (tag) async {
-              print((await (Ndef.from(tag)?.read()))?.records.join("\n"));
+              // TODO
             },
           );
 
