@@ -32,6 +32,7 @@ class _CiePinRouteState extends State<CiePinRoute> {
             obscureText: true,
             animationType: AnimationType.scale,
             keyboardType: TextInputType.number,
+            autoFocus: true,
             pinTheme: PinTheme(
               shape: PinCodeFieldShape.underline,
               borderRadius: BorderRadius.circular(5),
